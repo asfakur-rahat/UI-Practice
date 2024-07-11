@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ScrollView
+        android:id="@+id/drawer_options"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_dp8"
+                android:text="@string/settings"
+                android:textColor="#B3000000"
+                android:textSize="@dimen/_sp6"/>
+            <include
+                android:id="@+id/drawer_option_qr"
+                layout="@layout/drawer_options"/>
+            <include
+                android:id="@+id/drawer_option_lang"
+                layout="@layout/drawer_options"/>
+            <include
+                android:id="@+id/drawer_option_theme"
+                layout="@layout/drawer_options"/>
+            <include
+                android:id="@+id/drawer_option_biometric"
+                layout="@layout/drawer_options"/>
+            <include
+                android:id="@+id/drawer_option_scut"
+                layout="@layout/option_switch"/>
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:dividerThickness="2dp"
+                app:dividerInsetStart="@dimen/_dp8"
+                app:dividerInsetEnd="@dimen/_dp8"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_dp8"
+                android:text="@string/account_service"
+                android:textColor="#B3000000"
+                android:textSize="@dimen/_sp6"/>
+
+            <include
+                android:id="@+id/drawer_option_bank_acc"
+                layout="@layout/drawer_options"/>
+            <include
+                android:id="@+id/drawer_option_acc_setting"
+                layout="@layout/drawer_options"/>
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginVertical="@dimen/_dp8"
+                android:layout_marginHorizontal="@dimen/_dp8"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_dp8"
+                android:text="@string/support"
+                android:textColor="#B3000000"
+                android:textSize="@dimen/_sp6"/>
+
+            <include
+                android:id="@+id/drawer_option_feedback"
+                layout="@layout/drawer_options"/>
+            <include
+                android:id="@+id/drawer_option_support"
+                layout="@layout/drawer_options"/>
+            <include
+                android:id="@+id/drawer_option_refer"
+                layout="@layout/drawer_options"/>
+            <include
+                android:id="@+id/drawer_option_limit"
+                layout="@layout/drawer_options"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

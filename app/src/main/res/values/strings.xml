@@ -23,4 +23,18 @@
     <string name="register_now">Register Now</string>
     <string name="explore">+ Explore</string>
     <string name="explore_placeholder">Enjoy the fastest\ntransactions!</string>
+    <string name="limit_usage"><![CDATA[Limit & Usage]]></string>
+    <string name="refer">Refer</string>
+    <string name="_24x7_support">24x7 Support</string>
+    <string name="feedback">Feedback</string>
+    <string name="support">Support</string>
+    <string name="account_settings">Account Settings</string>
+    <string name="bank_accounts">Bank Accounts</string>
+    <string name="account_service">Account Service</string>
+    <string name="floating_shortcut">Floating Shortcut</string>
+    <string name="biometric_unlock">Biometric Unlock</string>
+    <string name="appearance">Appearance</string>
+    <string name="change_language">Change Language</string>
+    <string name="my_qr">MY QR</string>
+    <string name="settings">Settings</string>
 </resources>

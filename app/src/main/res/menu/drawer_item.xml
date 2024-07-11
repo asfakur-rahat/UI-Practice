@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <item android:title="@string/settings">
+        <menu>
+            <item
+                android:icon="@drawable/ic_qr_2"
+                android:title="@string/my_qr"/>
+            <item
+                android:icon="@drawable/ic_lang"
+                android:title="@string/change_language"/>
+            <item
+                android:icon="@drawable/ic_theme"
+                android:title="@string/appearance"/>
+            <item
+                android:icon="@drawable/ic_biometric"
+                android:title="@string/biometric_unlock"/>
+            <item
+                android:icon="@drawable/ic_fab_scut"
+                android:title="@string/floating_shortcut"/>
+        </menu>
+    </item>
+    <item android:title="@string/account_service">
+        <menu>
+            <item android:title="@string/bank_accounts"
+                android:icon="@drawable/ic_bank_acc"/>
+            <item android:title="@string/account_settings"
+                android:icon="@drawable/ic_acc_setting"/>
+        </menu>
+    </item>
+    <item android:title="@string/support">
+        <menu>
+            <item android:title="@string/feedback"
+                android:icon="@drawable/ic_feedback"/>
+            <item android:title="@string/_24x7_support"
+                android:icon="@drawable/ic_support"/>
+            <item android:title="@string/refer"
+                android:icon="@drawable/refer"/>
+            <item android:title="@string/limit_usage"
+                android:icon="@drawable/ic_limit"/>
+        </menu>
+    </item>
+</menu>
