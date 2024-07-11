@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/bg_image"
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bg_home"/>
+        app:srcCompat="@drawable/bg_home" />
     <!--    Profile Pic-->
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/profile_image"
@@ -35,19 +35,20 @@
         android:textColor="@color/white"
         android:textSize="@dimen/_sp6"
         app:layout_constraintBottom_toBottomOf="@+id/profile_image"
+        app:layout_constraintEnd_toStartOf="@id/ll_icons"
         app:layout_constraintStart_toEndOf="@+id/profile_image"
         app:layout_constraintTop_toTopOf="@+id/profile_image"
-        app:layout_constraintEnd_toStartOf="@id/ll_icons"
         tools:text="Maruf Ahmed" />
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_user_tag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Basic"
-        app:layout_constraintTop_toBottomOf="@id/tv_name"
-        app:layout_constraintStart_toStartOf="@id/tv_name"
         android:textColor="@color/white"
-        android:textSize="@dimen/_sp4"/>
+        android:textSize="@dimen/_sp4"
+        app:layout_constraintStart_toStartOf="@id/tv_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_name"
+        tools:text="Basic" />
     <!--    Icons-->
     <LinearLayout
         android:id="@+id/ll_icons"
@@ -76,333 +77,232 @@
         android:id="@+id/tv_balance_tag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_dp8"
         android:text="@string/balance"
         android:textColor="@color/white"
         android:textSize="@dimen/_sp4"
-        android:layout_marginTop="@dimen/_dp8"
         app:layout_constraintStart_toStartOf="@id/profile_image"
-        app:layout_constraintTop_toBottomOf="@id/profile_image"/>
+        app:layout_constraintTop_toBottomOf="@id/profile_image" />
+
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_currency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_bdt"
         android:tint="@color/white"
-        app:layout_constraintTop_toTopOf="@id/tv_balance"
         app:layout_constraintBottom_toBottomOf="@id/tv_balance"
         app:layout_constraintEnd_toStartOf="@id/tv_balance"
-        app:layout_constraintStart_toStartOf="@id/tv_balance_tag"/>
+        app:layout_constraintStart_toStartOf="@id/tv_balance_tag"
+        app:layout_constraintTop_toTopOf="@id/tv_balance"
+        app:srcCompat="@drawable/ic_bdt" />
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_balance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="4,00,000"
+        android:layout_marginStart="@dimen/_dp2"
+        android:layout_marginTop="@dimen/_dp1"
         android:textColor="@color/white"
         android:textSize="@dimen/_sp8"
-        android:layout_marginTop="@dimen/_dp1"
-        android:layout_marginStart="@dimen/_dp2"
         app:layout_constraintStart_toEndOf="@id/iv_currency"
-        app:layout_constraintTop_toBottomOf="@id/tv_balance_tag"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_balance_tag"
+        tools:text="4,00,000" />
+
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/balance_toogle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_show_balance"
         android:layout_marginStart="@dimen/_dp2"
-        app:layout_constraintTop_toTopOf="@id/tv_balance"
         app:layout_constraintBottom_toBottomOf="@id/tv_balance"
-        app:layout_constraintStart_toEndOf="@id/tv_balance"/>
+        app:layout_constraintStart_toEndOf="@id/tv_balance"
+        app:layout_constraintTop_toTopOf="@id/tv_balance"
+        app:srcCompat="@drawable/ic_show_balance" />
     <!--    Shortcuts -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/my_pocket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_dp8"
-        app:cardCornerRadius="@dimen/_dp8"
-        android:translationZ="1dp"
         android:backgroundTint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/balance_toogle"
-        app:layout_constraintBottom_toBottomOf="@id/balance_toogle"
-        app:layout_constraintStart_toEndOf="@id/balance_toogle"
-        app:layout_constraintHorizontal_bias="1">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/_dp2"
-            android:orientation="horizontal">
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="@dimen/_dp8"
-                android:layout_height="@dimen/_dp8"
-                android:scaleType="fitXY"
-                android:layout_gravity="center"
-                app:srcCompat="@drawable/ic_my_pocket"/>
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/my_pocket"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_sp6"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_dp2"
-                />
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/shortcuts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/_dp4"
-        app:strokeWidth="0dp"
         android:translationZ="1dp"
-        app:cardBackgroundColor="@color/white"
-        android:layout_marginTop="@dimen/_dp32"
+        app:cardCornerRadius="@dimen/_dp8"
+        app:layout_constraintBottom_toBottomOf="@id/balance_toogle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name">
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toEndOf="@id/balance_toogle"
+        app:layout_constraintTop_toTopOf="@id/balance_toogle">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:padding="@dimen/_dp6">
+            android:padding="@dimen/_dp2">
 
-            <LinearLayout
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="@dimen/_dp8"
+                android:layout_height="@dimen/_dp8"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_my_pocket" />
+
+            <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/_dp2">
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
-                    app:strokeWidth="0dp"
-                    app:cardCornerRadius="@dimen/_dp2"
-                    app:cardElevation="0dp"
-                    style="@style/ShortCutCard">
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="@dimen/_dp4"
-                        android:layout_marginHorizontal="@dimen/_dp4"
-                        app:srcCompat="@drawable/ic_recharge" />
-                </com.google.android.material.card.MaterialCardView>
-
-
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/recharge"
-                    android:layout_marginTop="@dimen/_dp2"
-                    android:textAlignment="center"
-                    android:textColor="@color/black" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/_dp2">
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
-                    app:strokeWidth="0dp"
-                    app:cardCornerRadius="@dimen/_dp2"
-                    app:cardElevation="0dp"
-                    style="@style/ShortCutCard">
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="@dimen/_dp4"
-                        android:layout_marginHorizontal="@dimen/_dp4"
-                        app:srcCompat="@drawable/ic_payment" />
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/payment"
-                    android:layout_marginTop="@dimen/_dp2"
-                    android:textAlignment="center"
-                    android:textColor="@color/black" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/_dp2">
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
-                    app:strokeWidth="0dp"
-                    app:cardCornerRadius="@dimen/_dp2"
-                    app:cardElevation="0dp"
-                    style="@style/ShortCutCard">
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="@dimen/_dp4"
-                        android:layout_marginHorizontal="@dimen/_dp4"
-                        app:srcCompat="@drawable/ic_transfer" />
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/transfer"
-                    android:layout_marginTop="@dimen/_dp2"
-                    android:textAlignment="center"
-                    android:textColor="@color/black" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/_dp2">
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
-                    app:strokeWidth="0dp"
-                    app:cardCornerRadius="@dimen/_dp2"
-                    app:cardElevation="0dp"
-                    style="@style/ShortCutCard">
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="@dimen/_dp4"
-                        android:layout_marginHorizontal="@dimen/_dp4"
-                        app:srcCompat="@drawable/ic_add" />
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/shortcut"
-                    android:layout_marginTop="@dimen/_dp2"
-                    android:textAlignment="center"
-                    android:textColor="@color/black" />
-            </LinearLayout>
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_dp2"
+                android:text="@string/my_pocket"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_sp6" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/shortcuts"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_dp32"
+        android:layout_marginHorizontal="@dimen/_dp12"
+        android:padding="@dimen/_dp6"
+        android:translationZ="1dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/_dp4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name"
+        app:strokeWidth="0dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_shortcuts"
+            android:clipToPadding="false"
+            android:layout_marginBottom="@dimen/_dp2"
+            android:layout_marginHorizontal="@dimen/_dp2"
+            android:layout_width="wrap_content"
+            tools:itemCount="4"
+            tools:listitem="@layout/short_cut_item"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.card.MaterialCardView>
+
     <LinearLayout
         android:id="@+id/ll_add_money"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_margin="@dimen/_dp8"
-        app:layout_constraintTop_toBottomOf="@id/shortcuts"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/shortcuts"
         app:layout_constraintStart_toStartOf="@id/shortcuts"
-        app:layout_constraintEnd_toEndOf="@id/shortcuts">
+        app:layout_constraintTop_toBottomOf="@id/shortcuts">
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/add_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:cardCornerRadius="@dimen/_dp4"
             android:layout_marginEnd="@dimen/_dp2"
-            android:backgroundTint= "@color/white"
+            android:layout_weight="1"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="@dimen/_dp4"
             app:strokeWidth="0dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:orientation="horizontal"
                 android:paddingHorizontal="@dimen/_dp6"
-                android:paddingVertical="@dimen/_dp4"
-                android:orientation="horizontal">
+                android:paddingVertical="@dimen/_dp4">
+
                 <com.google.android.material.imageview.ShapeableImageView
                     android:layout_width="@dimen/_dp12"
                     android:layout_height="@dimen/_dp12"
-                    android:scaleType="fitXY"
                     android:layout_gravity="center"
-                    app:srcCompat="@drawable/ic_add_money_logo"/>
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/ic_add_money_logo" />
+
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/add_money"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_sp6"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_dp2"
-                    />
+                    android:text="@string/add_money"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_sp6" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/send_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:cardCornerRadius="@dimen/_dp4"
             android:layout_marginStart="@dimen/_dp2"
-            android:backgroundTint= "@color/white"
+            android:layout_weight="1"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="@dimen/_dp4"
             app:strokeWidth="0dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:orientation="horizontal"
                 android:paddingHorizontal="@dimen/_dp6"
-                android:paddingVertical="@dimen/_dp4"
-                android:orientation="horizontal">
+                android:paddingVertical="@dimen/_dp4">
+
                 <com.google.android.material.imageview.ShapeableImageView
                     android:layout_width="@dimen/_dp12"
                     android:layout_height="@dimen/_dp12"
-                    android:scaleType="fitXY"
                     android:layout_gravity="center"
-                    app:srcCompat="@drawable/ic_send_money"/>
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/ic_send_money_logo" />
+
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/send_money"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_sp6"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_dp2"
-                    />
+                    android:text="@string/send_money"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_sp6" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/ll_transactions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
-        app:cardCornerRadius="@dimen/_dp4"
-        app:strokeWidth="0dp"
-        app:cardElevation="@dimen/_dp2"
         android:layout_marginHorizontal="@dimen/_dp10"
         android:layout_marginTop="@dimen/_dp8"
-        tools:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/ll_add_money"
-        app:layout_constraintStart_toStartOf="@id/ll_add_money"
+        android:backgroundTint="@color/white"
+        android:visibility="visible"
+        app:cardCornerRadius="@dimen/_dp4"
+        app:cardElevation="@dimen/_dp2"
         app:layout_constraintEnd_toEndOf="@id/ll_add_money"
-        android:visibility="visible">
+        app:layout_constraintStart_toStartOf="@id/ll_add_money"
+        app:layout_constraintTop_toBottomOf="@id/ll_add_money"
+        app:strokeWidth="0dp"
+        tools:visibility="gone">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_dp2"
+                android:padding="@dimen/_dp2"
                 android:text="@string/transactions"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_sp6"
-                android:padding="@dimen/_dp2"
-                android:layout_marginStart="@dimen/_dp2"/>
+                android:textSize="@dimen/_sp6" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height=".5dp"
-                android:background="#D38C8686"/>
+                android:background="#D38C8686" />
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/_dp4">
+
                 <LinearLayout
                     android:id="@+id/logo"
                     android:layout_width="wrap_content"
@@ -412,6 +312,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
+
                     <com.google.android.material.imageview.ShapeableImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -425,50 +326,54 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_dp2"
                     android:text="@string/placeholder_send"
-                    app:layout_constraintTop_toTopOf="@id/logo"
+                    android:textSize="@dimen/_sp6"
                     app:layout_constraintBottom_toBottomOf="@id/logo"
                     app:layout_constraintStart_toEndOf="@id/logo"
-                    android:layout_marginStart="@dimen/_dp2"
-                    android:textSize="@dimen/_sp6" />
+                    app:layout_constraintTop_toTopOf="@id/logo" />
+
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/sign"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    app:layout_constraintTop_toTopOf="@id/title"
+                    android:text="-"
+                    android:textColor="@android:color/holo_red_dark"
                     app:layout_constraintBottom_toBottomOf="@id/title"
                     app:layout_constraintEnd_toStartOf="@id/currency"
-                    android:textColor="@android:color/holo_red_dark"
-                    android:text="-"/>
+                    app:layout_constraintTop_toTopOf="@id/title" />
+
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/currency"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    app:layout_constraintTop_toTopOf="@id/sign"
+                    android:layout_marginEnd="@dimen/_dp1"
                     app:layout_constraintBottom_toBottomOf="@id/sign"
                     app:layout_constraintEnd_toStartOf="@id/amount"
-                    android:layout_marginEnd="@dimen/_dp1"
-                    app:srcCompat="@drawable/ic_bdt"/>
+                    app:layout_constraintTop_toTopOf="@id/sign"
+                    app:srcCompat="@drawable/ic_bdt" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="10,000.00"
                     android:layout_marginEnd="@dimen/_dp2"
+                    android:text="10,000.00"
                     android:textColor="@android:color/holo_red_dark"
                     app:layout_constraintBottom_toBottomOf="@id/currency"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1"
                     app:layout_constraintTop_toTopOf="@id/currency" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/_dp4">
+
                 <LinearLayout
                     android:id="@+id/logo1"
                     android:layout_width="wrap_content"
@@ -478,6 +383,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
+
                     <com.google.android.material.imageview.ShapeableImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -485,53 +391,59 @@
                         android:scaleType="fitCenter"
                         app:srcCompat="@drawable/ic_add_money" />
                 </LinearLayout>
+
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/title1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_dp2"
                     android:text="@string/placeholder_add"
-                    app:layout_constraintTop_toTopOf="@id/logo1"
+                    android:textSize="@dimen/_sp6"
                     app:layout_constraintBottom_toBottomOf="@id/logo1"
                     app:layout_constraintStart_toEndOf="@id/logo1"
-                    android:layout_marginStart="@dimen/_dp2"
-                    android:textSize="@dimen/_sp6" />
+                    app:layout_constraintTop_toTopOf="@id/logo1" />
+
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/sign1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    app:layout_constraintTop_toTopOf="@id/title1"
+                    android:text="+"
+                    android:textColor="#3DAE72"
                     app:layout_constraintBottom_toBottomOf="@id/title1"
                     app:layout_constraintEnd_toStartOf="@id/currency1"
-                    android:textColor="#3DAE72"
-                    android:text="+"/>
+                    app:layout_constraintTop_toTopOf="@id/title1" />
+
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/currency1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    app:layout_constraintTop_toTopOf="@id/sign1"
+                    android:tint="#3DAE72"
                     app:layout_constraintBottom_toBottomOf="@id/sign1"
                     app:layout_constraintEnd_toStartOf="@id/amount1"
-                    app:srcCompat="@drawable/ic_bdt"
-                    android:tint="#3DAE72"/>
+                    app:layout_constraintTop_toTopOf="@id/sign1"
+                    app:srcCompat="@drawable/ic_bdt" />
+
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/amount1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    app:layout_constraintTop_toTopOf="@id/currency1"
-                    app:layout_constraintBottom_toBottomOf="@id/currency1"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="@dimen/_dp2"
                     android:text="10,000.00"
-                    android:textColor="#3DAE72"/>
+                    android:textColor="#3DAE72"
+                    app:layout_constraintBottom_toBottomOf="@id/currency1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/currency1" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/_dp4">
+
                 <LinearLayout
                     android:id="@+id/logo2"
                     android:layout_width="wrap_content"
@@ -541,6 +453,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
+
                     <com.google.android.material.imageview.ShapeableImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -548,61 +461,67 @@
                         android:scaleType="fitCenter"
                         app:srcCompat="@drawable/ic_payment_logo" />
                 </LinearLayout>
+
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/title2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_dp2"
                     android:text="@string/placeholder_payment"
-                    app:layout_constraintTop_toTopOf="@id/logo2"
+                    android:textSize="@dimen/_sp6"
                     app:layout_constraintBottom_toBottomOf="@id/logo2"
                     app:layout_constraintStart_toEndOf="@id/logo2"
-                    android:layout_marginStart="@dimen/_dp2"
-                    android:textSize="@dimen/_sp6"/>
+                    app:layout_constraintTop_toTopOf="@id/logo2" />
+
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/sign2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    app:layout_constraintTop_toTopOf="@id/title2"
+                    android:text="-"
+                    android:textColor="@android:color/holo_red_dark"
                     app:layout_constraintBottom_toBottomOf="@id/title2"
                     app:layout_constraintEnd_toStartOf="@id/currency2"
-                    android:textColor="@android:color/holo_red_dark"
-                    android:text="-"/>
+                    app:layout_constraintTop_toTopOf="@id/title2" />
+
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/currency2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    app:layout_constraintTop_toTopOf="@id/sign2"
+                    android:layout_marginEnd="@dimen/_dp1"
                     app:layout_constraintBottom_toBottomOf="@id/sign2"
                     app:layout_constraintEnd_toStartOf="@id/amount2"
-                    android:layout_marginEnd="@dimen/_dp1"
-                    app:srcCompat="@drawable/ic_bdt"/>
+                    app:layout_constraintTop_toTopOf="@id/sign2"
+                    app:srcCompat="@drawable/ic_bdt" />
+
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/amount2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    app:layout_constraintTop_toTopOf="@id/currency2"
-                    app:layout_constraintBottom_toBottomOf="@id/currency2"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="@dimen/_dp2"
                     android:text="5,000.00"
-                    android:textColor="@android:color/holo_red_dark"/>
+                    android:textColor="@android:color/holo_red_dark"
+                    app:layout_constraintBottom_toBottomOf="@id/currency2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/currency2" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height=".5dp"
-                android:background="#D38C8686"/>
+                android:background="#D38C8686" />
+
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_dp4"
                 android:text="@string/see_all"
-                android:textColor="#4B9E79"
                 android:textAlignment="center"
-                android:textSize="@dimen/_sp4"
-                android:layout_margin="@dimen/_dp4"/>
+                android:textColor="#4B9E79"
+                android:textSize="@dimen/_sp4" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -610,77 +529,77 @@
         android:id="@+id/ll_registration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/bg_registration"
         android:layout_marginTop="@dimen/_dp6"
-        app:layout_constraintStart_toStartOf="@id/ll_transactions"
         app:layout_constraintEnd_toEndOf="@id/ll_transactions"
-        app:layout_constraintTop_toBottomOf="@id/ll_transactions"/>
+        app:layout_constraintStart_toStartOf="@id/ll_transactions"
+        app:layout_constraintTop_toBottomOf="@id/ll_transactions"
+        app:srcCompat="@drawable/bg_registration" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_registration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/ll_registration"
-        app:layout_constraintStart_toStartOf="@id/ll_registration"
         android:layout_marginStart="@dimen/_dp4"
         android:layout_marginTop="@dimen/_dp6"
+        android:text="@string/register_placeholder"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:text="@string/register_placeholder"/>
+        app:layout_constraintStart_toStartOf="@id/ll_registration"
+        app:layout_constraintTop_toTopOf="@id/ll_registration" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_register_now"
         android:layout_width="@dimen/_dp48"
         android:layout_height="@dimen/_dp12"
+        android:layout_marginTop="@dimen/_dp4"
+        android:background="@drawable/bg_button"
+        android:backgroundTint="@null"
         android:text="@string/register_now"
-        android:translationZ="1dp"
         android:textAllCaps="false"
         android:textSize="11sp"
-        app:elevation="0dp"
-        android:background="@drawable/bg_button"
+        android:translationZ="1dp"
         app:backgroundTint="#3DAE72"
-        android:layout_marginTop="@dimen/_dp4"
-        app:layout_constraintTop_toBottomOf="@id/tv_registration"
+        app:elevation="0dp"
         app:layout_constraintStart_toStartOf="@id/tv_registration"
-        android:backgroundTint="@null"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_registration" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ll_explore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/bg_transaction"
         android:layout_marginTop="@dimen/_dp6"
-        app:shapeAppearance="@style/CornerCut"
-        app:layout_constraintStart_toStartOf="@id/ll_registration"
         app:layout_constraintEnd_toEndOf="@id/ll_registration"
-        app:layout_constraintTop_toBottomOf="@id/ll_registration"/>
+        app:layout_constraintStart_toStartOf="@id/ll_registration"
+        app:layout_constraintTop_toBottomOf="@id/ll_registration"
+        app:shapeAppearance="@style/CornerCut"
+        app:srcCompat="@drawable/bg_transaction" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_explore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/ll_explore"
-        app:layout_constraintStart_toStartOf="@id/ll_explore"
         android:layout_marginStart="@dimen/_dp4"
         android:layout_marginTop="@dimen/_dp6"
+        android:text="@string/explore_placeholder"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:text="@string/explore_placeholder"/>
+        app:layout_constraintStart_toStartOf="@id/ll_explore"
+        app:layout_constraintTop_toTopOf="@id/ll_explore" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_explore"
         android:layout_width="@dimen/_dp48"
         android:layout_height="@dimen/_dp12"
+        android:layout_marginTop="@dimen/_dp4"
+        android:background="@drawable/bg_button"
+        android:backgroundTint="@null"
         android:text="@string/explore"
-        android:translationZ="1dp"
         android:textAllCaps="false"
         android:textSize="11sp"
-        app:elevation="0dp"
-        android:background="@drawable/bg_button"
+        android:translationZ="1dp"
         app:backgroundTint="#3DAE72"
-        android:layout_marginTop="@dimen/_dp4"
-        app:layout_constraintTop_toBottomOf="@id/tv_explore"
+        app:elevation="0dp"
         app:layout_constraintStart_toStartOf="@id/tv_explore"
-        android:backgroundTint="@null"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_explore" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

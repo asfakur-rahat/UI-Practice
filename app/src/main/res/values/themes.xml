@@ -3,11 +3,24 @@
     <style name="Base.Theme.UI_Practice" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorOnSecondary">#A8A9AD</item>
         <item name="android:colorBackground">#F3F3F3</item>
-
+        <item name="bottomSheetDialogTheme">@style/CustomBottomSheet</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
     <style name="Theme.UI_Practice" parent="Base.Theme.UI_Practice"/>
 
+
+    <style name="CustomBottomSheet" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/RoundUpperCorner</item>
+    </style>
+    <style name="RoundUpperCorner" parent="Widget.MaterialComponents.BottomSheet">
+        <item name="shapeAppearanceOverlay">@style/UpperRoundCorner</item>
+    </style>
+    <style name="UpperRoundCorner" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeTopRight">16dp</item>
+    </style>
     <style name="CornerCut" parent="">
         <item name="cornerFamilyTopLeft">rounded</item>
         <item name="cornerFamilyTopRight">rounded</item>
