@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_pocket"
+        android:title=""/>
+
+    <item
+        android:id="@+id/Search"
+        android:icon="@drawable/ic_stats"
+        android:title=""/>
+
+    <item
+        android:id="@+id/placeholder"
+        android:title=""/>
+
+    <item
+        android:id="@+id/Profile"
+        android:icon="@drawable/ic_message"
+        android:title=""/>
+
+    <item
+        android:id="@+id/Settings"
+        android:icon="@drawable/ic_more"
+        android:title=""/>
+
+</menu>

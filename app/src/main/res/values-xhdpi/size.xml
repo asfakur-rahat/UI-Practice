@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    DP sizes-->
+    <dimen name="_dp1">2dp</dimen>
+    <dimen name="_dp2">4dp</dimen>
+    <dimen name="_dp4">8dp</dimen>
+    <dimen name="_dp6">12dp</dimen>
+    <dimen name="_dp8">16dp</dimen>
+    <dimen name="_dp10">20dp</dimen>
+    <dimen name="_dp12">24dp</dimen>
+    <dimen name="_dp16">32dp</dimen>
+    <dimen name="_dp18">36dp</dimen>
+    <dimen name="_dp24">48dp</dimen>
+    <dimen name="_dp32">64dp</dimen>
+    <dimen name="_dp48">96dp</dimen>
+    <dimen name="_dp64">128dp</dimen>
+    <dimen name="_dp20">40dp</dimen>
+    <dimen name="_dp30">60dp</dimen>
+    <dimen name="_dp40">80dp</dimen>
+    <dimen name="_dp50">100dp</dimen>
+    <dimen name="_dp100">200dp</dimen>
+    <dimen name="_dp150">300dp</dimen>
+    <dimen name="_dp200">400dp</dimen>
+
+    <!--    Text Sizes-->
+    <dimen name="_sp1">2sp</dimen>
+    <dimen name="_sp2">4sp</dimen>
+    <dimen name="_sp4">8sp</dimen>
+    <dimen name="_sp6">12sp</dimen>
+    <dimen name="_sp8">16sp</dimen>
+    <dimen name="_sp10">20sp</dimen>
+    <dimen name="_sp12">24sp</dimen>
+    <dimen name="_sp16">32sp</dimen>
+    <dimen name="_sp18">36sp</dimen>
+    <dimen name="_sp24">48sp</dimen>
+    <dimen name="_sp32">64sp</dimen>
+    <dimen name="_sp48">96sp</dimen>
+    <dimen name="_sp64">128sp</dimen>
+    <dimen name="_sp20">40sp</dimen>
+    <dimen name="_sp30">60sp</dimen>
+    <dimen name="_sp40">80sp</dimen>
+    <dimen name="_sp50">100sp</dimen>
+    <dimen name="_sp100">200sp</dimen>
+    <dimen name="_sp150">300sp</dimen>
+    <dimen name="_sp200">400sp</dimen>
+
+</resources>

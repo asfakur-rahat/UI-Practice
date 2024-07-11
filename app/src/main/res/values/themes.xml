@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.UI_Practice" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorOnSecondary">#A8A9AD</item>
+        <item name="android:colorBackground">#F3F3F3</item>
+
+    </style>
+
+    <style name="Theme.UI_Practice" parent="Base.Theme.UI_Practice"/>
+
+    <style name="CornerCut" parent="">
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerSizeTopLeft">11.5%</item>
+        <item name="cornerSizeTopRight">11.5%</item>
+        <item name="cornerSizeBottomLeft">11.5%</item>
+        <item name="cornerSizeBottomRight">11.5%</item>
+    </style>
+</resources>

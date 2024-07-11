@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.UI_Practice" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorOnSecondary">#A8A9AD</item>
+        <item name="android:colorBackground">#F3F3F3</item>
+    </style>
+
+    <style name="Theme.UI_Practice" parent="Base.Theme.UI_Practice"/>
+</resources>

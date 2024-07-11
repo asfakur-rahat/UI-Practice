@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">UI_Practice</string>
+    <string name="shortcut">Shortcut</string>
+    <string name="transfer">Transfer</string>
+    <string name="payment">Payment</string>
+    <string name="recharge">Recharge</string>
+    <string name="balance">Balance</string>
+    <string name="my_pocket">My Pocket</string>
+    <string name="add_money">Add Money</string>
+    <string name="send_money">Send Money</string>
+    <string name="transactions">Transactions</string>
+    <string name="see_all">See All</string>
+    <string name="placeholder_send">Transfer to UCB **** \n1234</string>
+    <string name="placeholder_add">Money Added from UCB\n**** 1234</string>
+    <string name="placeholder_payment">Make Payment to Apon\nFamily Mart</string>
+    <string name="home">Home</string>
+    <string name="stats">Stats</string>
+    <string name="notifications">Notifications</string>
+    <string name="more">More</string>
+    <string name="qr_code">QR Code</string>
+    <string name="register_placeholder">To Use country\'s most\nsecure digital wallet</string>
+    <string name="register_placeholder2">To Use country\'s most\nsecure digital wallet</string>
+    <string name="register_now">Register Now</string>
+    <string name="explore">+ Explore</string>
+    <string name="explore_placeholder">Enjoy the fastest\ntransactions!</string>
+</resources>

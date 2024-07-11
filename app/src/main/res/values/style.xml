@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ShortCutCard" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">#FCFAF7</item>
+    </style>
+</resources>

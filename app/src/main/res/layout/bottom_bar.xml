@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:contentInsetStart="0dp"
+        app:contentInsetEnd="0dp"
+        app:elevation="6dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:clipChildren="false"
+        app:fabAlignmentMode="center"
+        android:minHeight="80dp"
+        app:fabCradleMargin="10dp"
+        app:fabCradleRoundedCornerRadius="0dp"
+        app:fabCradleVerticalOffset="0dp">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_transparent"
+            app:labelVisibilityMode="unlabeled"
+            app:menu="@menu/bottom_nav_bar"/>
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_scan_qr"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:maxImageSize="40dp"
+        android:contentDescription="@string/qr_code"
+        app:backgroundTint="@color/white"
+        app:tint="@null"
+        app:fabSize="normal"
+        app:fabCustomSize="80dp"
+        android:layout_marginBottom="40dp"
+        app:srcCompat="@drawable/ic_qr"
+        app:layout_anchor="@id/bottomAppBar"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
