@@ -1,164 +1,68 @@
 package com.ar.ui_practice
 
+import android.Manifest.permission.*
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup.MarginLayoutParams
+import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.core.view.updateLayoutParams
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.ar.ui_practice.R.drawable.*
 import com.ar.ui_practice.R.string.*
-import com.ar.ui_practice.adapter.ShortCutAdapter
-import com.ar.ui_practice.bottomSheet.ShortCutSelector
-import com.ar.ui_practice.data.demo.DemoData.shortcutData
-import com.ar.ui_practice.data.model.ShortcutData
 import com.ar.ui_practice.databinding.ActivityMainBinding
+import com.ar.ui_practice.presentation.home.HomeListener
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), HomeListener {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var adapter: ShortCutAdapter
-
-    private val initList =
-        mutableListOf(
-            ShortcutData(0,ic_add, "Shortcut"),
-            ShortcutData(1,ic_add, "Shortcut"),
-            ShortcutData(2, ic_add, "Shortcut"),
-            ShortcutData(3, ic_add, "Shortcut"),
-        )
-
-    private val shortcutList = shortcutData.toMutableList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        // enableEdgeToEdge()
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        enableEdgeToEdge()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            v.updateLayoutParams<MarginLayoutParams> {
+                leftMargin = systemBars.left
+                rightMargin = systemBars.right
+                bottomMargin = systemBars.bottom
+            }
             insets
         }
-        // binding.bottomBar.bottomNavigationView.menu.getItem(2).isEnabled = false
-        binding.content.bottomBar.bottomNavigationView.itemIconTintList = null
-        binding.content.basicPopup.registerNowLayout
-            .bringChildToFront(binding.content.basicPopup.registerNowDialog)
-        tossUser()
-    }
-
-    private fun tossUser() {
-        // val user = 1
-        val user = 2
-        if (user % 2 == 0) {
-            initInfo()
-        } else {
-            initBasic()
+        if(!allPermissionsGranted()){
+            requestPermissions()
         }
-    }
-
-    private fun initBasic() {
-        binding.content.profile.tvBalance.text = "00,00,000"
-        binding.content.profile.tvName.text = "Guest User"
-        binding.content.profile.tvUserTag.visibility = View.VISIBLE
-        binding.content.profile.tvUserTag.text = "Basic"
-        binding.content.profile.llRegistration.visibility = View.VISIBLE
-        binding.content.profile.llExplore.visibility = View.VISIBLE
-        binding.content.profile.tvRegistration.visibility = View.VISIBLE
-        binding.content.profile.btnRegisterNow.visibility = View.VISIBLE
-        binding.content.profile.tvExplore.visibility = View.VISIBLE
-        binding.content.profile.btnExplore.visibility = View.VISIBLE
-        binding.content.profile.llTransactions.visibility = View.GONE
-        initItems()
         initListener()
-    }
 
-    private fun initItems() {
-        adapter = ShortCutAdapter( onClick = { data ->
-            if (data.title == "Shortcut") {
-                val shortCutSelector = ShortCutSelector(
-                    shortcutData = shortcutList.toList(),
-                    onClick = { selectedData ->
-                        shortcutList.remove(selectedData)
-                        initList[data.id] = ShortcutData(data.id, selectedData.icon, selectedData.title, false)
-                        adapter.notifyItemChanged(data.id)
-                    }
-                )
-                shortCutSelector.show(supportFragmentManager, "ShortCutSelector")
-            }else{
-                if(data.removeIcon){
-                    initList[data.id] = ShortcutData(data.id, ic_add, "Shortcut")
-                    adapter.notifyItemChanged(data.id)
-                    val item = shortcutData.find{
-                        data.title == it.title
-                    }
-                    shortcutList.add(item!!)
-                    shortcutList.sortBy { it.id }
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment
+        val navController = navHostFragment.navController
+        binding.bottomBar.bottomNavigationView.setupWithNavController(navController)
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.homeFragment ->{
+                    binding.bottomBar.root.visibility = View.VISIBLE
+                }
+                R.id.servicesFragment->{
+                    binding.bottomBar.root.visibility = View.VISIBLE
+                }
+                else ->{
+                    binding.bottomBar.root.visibility = View.GONE
                 }
             }
-        }, onLongClick = {
-            initList.forEach {
-                if(it.title != "Shortcut"){
-                    it.removeIcon = !it.removeIcon
-                    adapter.notifyItemChanged(it.id)
-                }
-            }
-        })
-        binding.content.profile.rvShortcuts.apply {
-            layoutManager =
-                GridLayoutManager(this@MainActivity, 4, LinearLayoutManager.VERTICAL, false)
-            isNestedScrollingEnabled = false
         }
-        binding.content.profile.rvShortcuts.adapter = adapter
-        adapter.submitList(initList)
     }
 
     private fun initListener() {
-        binding.root.setOnClickListener {
-            binding.content.basicPopup.root.visibility = View.VISIBLE
-        }
-        binding.content.basicPopup.closeDialog.setOnClickListener {
-            binding.content.basicPopup.root.visibility = View.GONE
-        }
-        binding.content.basicPopup.btnRegisterNow1.setOnClickListener {
-            binding.content.basicPopup.root
-                .performClick()
-        }
-        binding.content.profile.btnRegisterNow.setOnClickListener {
-            binding.root.performClick()
-        }
-        binding.content.profile.btnExplore.setOnClickListener {
-            binding.root.performClick()
-        }
-        binding.content.bottomBar.fabScanQr.setOnClickListener {
-            binding.root.performClick()
-        }
-        binding.content.bottomBar.bottomNavigationView.setOnItemSelectedListener {
-            binding.root.performClick()
-        }
-    }
-
-    private fun initInfo() {
-        binding.content.profile.tvBalance.text = "4,00,000"
-        binding.content.profile.tvName.text = "Maruf Ahmed"
-        binding.content.profile.llRegistration.visibility = View.GONE
-        binding.content.profile.llExplore.visibility = View.GONE
-        binding.content.profile.tvRegistration.visibility = View.GONE
-        binding.content.profile.btnRegisterNow.visibility = View.GONE
-        binding.content.profile.tvExplore.visibility = View.GONE
-        binding.content.profile.btnExplore.visibility = View.GONE
-        binding.content.profile.tvUserTag.visibility = View.GONE
-        binding.content.profile.llTransactions.visibility = View.VISIBLE
-        initItems()
-        initMainListener()
-    }
-
-    private fun initMainListener() {
-        binding.content.profile.profileImage.setOnClickListener {
-            binding.main.open()
-        }
         setAllOptions()
     }
-
     private fun setAllOptions() {
         binding.drawer.header.apply {
             name.text = "Maruf Ahmed"
@@ -188,5 +92,29 @@ class MainActivity : AppCompatActivity() {
             drawerOptionRefer.icon.setImageResource(R.drawable.refer)
             drawerOptionLimit.icon.setImageResource(ic_limit)
         }
+    }
+    override fun onDrawerClick() {
+        binding.main.open()
+    }
+    private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
+        ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
+    }
+    private fun requestPermissions() {
+        activityResultLauncher.launch(REQUIRED_PERMISSIONS)
+    }
+    private val activityResultLauncher = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
+        var permissionGranted = true
+        permissions.entries.forEach {
+            if (it.key in REQUIRED_PERMISSIONS && !it.value)
+                permissionGranted = false
+        }
+        if (!permissionGranted) {
+            Toast.makeText(baseContext, "Permission request denied", Toast.LENGTH_SHORT).show()
+        }
+    }
+    companion object {
+        private val REQUIRED_PERMISSIONS = mutableListOf(
+            READ_CONTACTS
+        ).toTypedArray()
     }
 }

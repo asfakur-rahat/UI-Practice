@@ -26,10 +26,10 @@
     <dimen name="_sp1">3sp</dimen>
     <dimen name="_sp2">6sp</dimen>
     <dimen name="_sp4">12sp</dimen>
-    <dimen name="_sp6">18sp</dimen>
-    <dimen name="_sp8">24sp</dimen>
-    <dimen name="_sp10">30sp</dimen>
-    <dimen name="_sp12">36sp</dimen>
+    <dimen name="_sp6">14sp</dimen>
+    <dimen name="_sp8">16sp</dimen>
+    <dimen name="_sp10">18sp</dimen>
+    <dimen name="_sp12">22sp</dimen>
     <dimen name="_sp16">48sp</dimen>
     <dimen name="_sp18">54sp</dimen>
     <dimen name="_sp24">72sp</dimen>

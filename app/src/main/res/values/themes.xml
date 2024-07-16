@@ -4,7 +4,7 @@
         <item name="colorOnSecondary">#A8A9AD</item>
         <item name="android:colorBackground">#F3F3F3</item>
         <item name="bottomSheetDialogTheme">@style/CustomBottomSheet</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
     <style name="Theme.UI_Practice" parent="Base.Theme.UI_Practice"/>
@@ -21,6 +21,7 @@
         <item name="cornerSizeTopLeft">16dp</item>
         <item name="cornerSizeTopRight">16dp</item>
     </style>
+
     <style name="CornerCut" parent="">
         <item name="cornerFamilyTopLeft">rounded</item>
         <item name="cornerFamilyTopRight">rounded</item>
@@ -31,4 +32,83 @@
         <item name="cornerSizeBottomLeft">11.5%</item>
         <item name="cornerSizeBottomRight">11.5%</item>
     </style>
+
+    <style name="Custom.Switch" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">#3DAE72</item>
+        <item name="colorSwitchThumbNormal">#ECECEC</item>
+        <item name="android:colorForeground">#42221f1f</item>
+    </style>
+
+    <style name="open_sans_semi_bold_16">
+        <item name="android:fontFamily">@font/open_sans_bold</item>
+        <item name="android:textColor">#B3000000</item>
+        <item name="android:textSize">@dimen/_sp8</item>
+    </style>
+
+    <style name="open_sans_regular_18">
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_sp10</item>
+    </style>
+
+    <style name="open_sans_regular_14">
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_sp6</item>
+        <item name="android:textFontWeight">400</item>
+    </style>
+
+    <style name="open_sans_semi_bold_14">
+        <item name="android:fontFamily">@font/open_sans_semibold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_sp6</item>
+    </style>
+
+    <style name="open_sans_semi_bold_14Black70">
+        <item name="android:fontFamily">@font/open_sans_semibold</item>
+        <item name="android:textColor">#B3000000</item>
+        <item name="android:textSize">@dimen/_sp6</item>
+    </style>
+
+    <style name="open_sans_semi_bold_22">
+        <item name="android:fontFamily">@font/open_sans_semibold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_sp12</item>
+    </style>
+
+    <style name="open_sans_semi_bold_12">
+        <item name="android:fontFamily">@font/open_sans_semibold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_sp4</item>
+    </style>
+
+    <style name="open_sans_regular_22">
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_sp12</item>
+    </style>
+
+    <style name="open_sans_semi_bold_18_white">
+        <item name="android:fontFamily">@font/open_sans_semibold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_sp10</item>
+    </style>
+    <style name="open_sans_semi_bold_18_black">
+        <item name="android:fontFamily">@font/open_sans_semibold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_sp10</item>
+    </style>
+
+
+
+    <style name="NoUnderlineTextInputEditText" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="android:textColorHint">#4D000000</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/open_sans</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+    </style>
+
+
 </resources>
