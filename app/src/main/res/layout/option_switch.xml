@@ -3,25 +3,25 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/_dp1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
         android:layout_marginStart="@dimen/_dp8"
-        android:layout_marginVertical="@dimen/_dp2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:srcCompat="@drawable/ic_qr_2"/>
+        app:srcCompat="@drawable/ic_fab_scut"/>
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/option_name"
         android:layout_width="0dp"
         tools:text="Floating Shortcut"
         android:layout_marginStart="@dimen/_dp8"
-        android:textColor="@color/black"
         android:layout_height="wrap_content"
+        style="@style/open_sans_semi_bold_14"
         app:layout_constraintStart_toEndOf="@id/icon"
         app:layout_constraintTop_toTopOf="@id/icon"
         app:layout_constraintBottom_toBottomOf="@id/icon"
@@ -29,9 +29,11 @@
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/trailing_icon"
+        style="@style/Custom.Switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_dp8"
+        android:layout_marginEnd="@dimen/_dp4"
+        android:theme="@style/Custom.Switch"
         app:layout_constraintBottom_toBottomOf="@id/option_name"
         app:layout_constraintTop_toTopOf="@id/option_name"
         app:layout_constraintEnd_toEndOf="parent"/>

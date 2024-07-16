@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingVertical="@dimen/_dp2"
+    android:paddingHorizontal="@dimen/_dp8"
+    xmlns:tools="http://schemas.android.com/tools">
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/open_sans_regular_14"
+        android:textColor="#B3000000"
+        tools:text="My Offer"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

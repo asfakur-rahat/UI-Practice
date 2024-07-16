@@ -3,12 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/home"
+        android:id="@+id/homeFragment"
         android:icon="@drawable/ic_pocket"
         android:title=""/>
 
     <item
-        android:id="@+id/Search"
+        android:id="@+id/stats"
         android:icon="@drawable/ic_stats"
         android:title=""/>
 
@@ -17,12 +17,12 @@
         android:title=""/>
 
     <item
-        android:id="@+id/Profile"
+        android:id="@+id/chat"
         android:icon="@drawable/ic_message"
         android:title=""/>
 
     <item
-        android:id="@+id/Settings"
+        android:id="@+id/servicesFragment"
         android:icon="@drawable/ic_more"
         android:title=""/>
 
