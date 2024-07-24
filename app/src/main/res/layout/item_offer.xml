@@ -4,92 +4,165 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/_dp4">
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_dp8"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_meyad" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tv_deadline"
-        style="@style/open_sans_semi_bold_14Black70"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_dp2"
-        app:layout_constraintBottom_toBottomOf="@id/image"
-        app:layout_constraintStart_toEndOf="@id/image"
-        app:layout_constraintTop_toTopOf="@id/image"
-        tools:text="30 Days" />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_dp2"
-        app:layout_constraintBottom_toBottomOf="@id/tv_deadline"
-        app:layout_constraintEnd_toStartOf="@+id/amount"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/tv_deadline"
-        app:layout_constraintTop_toTopOf="@id/tv_deadline"
-        app:srcCompat="@drawable/ic_wifi" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/icon"
-        app:layout_constraintEnd_toStartOf="@+id/card_price"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/icon"
-        app:layout_constraintTop_toTopOf="@id/icon"
-        tools:text="350 GB" />
-
+    android:layout_margin="@dimen/_dp2">
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_dp16"
-        app:cardBackgroundColor="#3DAE72"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="13dp"
+        app:strokeWidth="0dp"
+        app:cardElevation="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingHorizontal="@dimen/_dp6"
-            android:paddingVertical="@dimen/_dp2">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_dp1"
+            android:layout_marginVertical="@dimen/_dp4">
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/icon_price"
+            <LinearLayout
+                android:id="@+id/slot_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:tint="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/slot_3"
+                app:layout_constraintEnd_toStartOf="@+id/slot_2"
+                app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_bdt" />
+                app:layout_constraintVertical_chainStyle="spread">
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_price"
-                style="@style/open_sans_semi_bold_14"
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/icon_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_dp1"
+                    android:tint="#A8A9AD"
+                    app:srcCompat="@drawable/ic_meyad" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_slot_1"
+                    style="@style/open_sans_semi_bold_14Black70"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="30 Days" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/slot_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_dp2"
-                android:textColor="@color/white"
-                app:layout_constraintBottom_toBottomOf="@id/icon_price"
-                app:layout_constraintStart_toEndOf="@id/icon_price"
-                app:layout_constraintTop_toTopOf="@id/icon_price"
-                tools:text="500" />
+                app:layout_constraintBottom_toBottomOf="@id/slot_1"
+                app:layout_constraintEnd_toStartOf="@+id/expire_time"
+                app:layout_constraintStart_toEndOf="@+id/slot_1"
+                app:layout_constraintTop_toTopOf="@id/slot_1"
+                tools:visibility="gone">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/icon_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tint="#A8A9AD"
+                    app:srcCompat="@drawable/ic_meyad" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_slot_2"
+                    style="@style/open_sans_semi_bold_14Black70"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_dp1"
+                    tools:text="30 Days" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/slot_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/slot_1"
+                app:layout_constraintStart_toStartOf="@id/slot_1"
+                app:layout_constraintTop_toBottomOf="@+id/slot_1"
+                tools:visibility="gone">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/icon_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_dp1"
+                    android:tint="#A8A9AD"
+                    app:srcCompat="@drawable/ic_meyad" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_slot_3"
+                    style="@style/open_sans_semi_bold_14Black70"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="30 Days" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/expire_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@id/slot_1"
+                app:layout_constraintEnd_toStartOf="@+id/card_price"
+                app:layout_constraintStart_toEndOf="@+id/slot_2"
+                app:layout_constraintTop_toTopOf="@id/slot_1">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tint="#A8A9AD"
+                    app:srcCompat="@drawable/ic_meyad" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_deadline"
+                    style="@style/open_sans_semi_bold_14Black70"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_dp1"
+                    tools:text="30 Days" />
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="@id/expire_time"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/expire_time"
+                app:layout_constraintTop_toTopOf="@id/expire_time">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_gold_card"
+                    android:paddingHorizontal="@dimen/_dp6"
+                    android:paddingVertical="@dimen/_dp2">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/icon_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:tint="#C7000000"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_bdt" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_price"
+                        style="@style/open_sans_semi_bold_14Black70"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_dp2"
+                        app:layout_constraintBottom_toBottomOf="@id/icon_price"
+                        app:layout_constraintStart_toEndOf="@id/icon_price"
+                        app:layout_constraintTop_toTopOf="@id/icon_price"
+                        tools:text="500" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 

@@ -1,4 +1,4 @@
-package com.ar.ui_practice.presentation.topup
+package com.ar.ui_practice.presentation.top_up
 
 import androidx.fragment.app.Fragment
 import com.ar.ui_practice.R
