@@ -1,11 +1,14 @@
 package com.ar.ui_practice.adapter.top_up
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.ar.ui_practice.R
+import com.ar.ui_practice.R.color.activeColor
 import com.ar.ui_practice.databinding.ItemOptionsBinding
 
 class OffersAdapter(
@@ -32,7 +35,7 @@ class OffersAdapter(
             binding.optionName.text = data
             if (isSelected){
                 binding.apply {
-                    optionName.setTextColor(0x3DAE72)
+                    optionName.setTextColor(Color.parseColor("#3DAE72"))
                     underline.visibility = View.VISIBLE
                 }
             }else{

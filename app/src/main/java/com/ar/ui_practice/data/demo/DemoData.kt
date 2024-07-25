@@ -4,6 +4,9 @@ import com.ar.ui_practice.R.drawable.*
 import com.ar.ui_practice.data.model.Service
 import com.ar.ui_practice.data.model.Services
 import com.ar.ui_practice.data.model.ShortcutData
+import com.ar.ui_practice.data.model.top_up.Offer
+import com.ar.ui_practice.data.model.top_up.OfferItem
+import com.ar.ui_practice.data.model.top_up.Offers
 
 object DemoData {
     val shortcutData = listOf(
@@ -63,6 +66,74 @@ object DemoData {
             id = 2,
             title = "Others",
             Others
+        )
+    )
+
+    val OfferList = listOf(
+        Offer(
+            expire = "30 Days",
+            price = "500",
+            bundle = listOf(
+                OfferItem(
+                    amount = "500 GB",
+                    icon = ic_web
+                )
+            )
+        ),
+        Offer(
+            expire = "15 Days",
+            price = "300",
+            bundle = listOf(
+                OfferItem(
+                    amount = "5 GB",
+                    icon = ic_web
+                ),
+                OfferItem(
+                    amount = "100 Min",
+                    icon = ic_phone
+                )
+            )
+        ),
+        Offer(
+            expire = "15 Days",
+            price = "199",
+            bundle = listOf(
+                OfferItem(
+                    amount = "5 GB",
+                    icon = ic_web
+                ),
+                OfferItem(
+                    amount = "10 Min",
+                    icon = ic_phone
+                ),
+                OfferItem(
+                    amount = "100 SMS",
+                    icon = ic_sms
+                )
+            )
+        )
+    )
+
+    val OffersList = listOf(
+        Offers(
+            category = "Internet",
+            offerList = OfferList
+        ),
+        Offers(
+            category = "My Offer",
+            offerList = OfferList
+        ),
+        Offers(
+            category = "Call Rate",
+            offerList = OfferList
+        ),
+        Offers(
+            category = "Minute",
+            offerList = OfferList
+        ),
+        Offers(
+            category = "Bundle",
+            offerList = OfferList
         )
     )
 }

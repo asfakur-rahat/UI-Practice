@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="@dimen/_dp18"
+        android:layout_marginTop="@dimen/_18dp"
         android:id="@+id/tv_title"
         android:text="@string/services"/>
 
@@ -21,8 +21,8 @@
         android:id="@+id/rv_category"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/_dp8"
-        android:paddingBottom="120dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:paddingBottom="@dimen/_120dp"
         android:clipToPadding="false"
         tools:itemCount="3"
         tools:listitem="@layout/service_category_item"
@@ -33,7 +33,7 @@
     
     <View
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="@dimen/_140dp"
         android:background="@drawable/bg_services_bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

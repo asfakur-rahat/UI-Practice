@@ -41,7 +41,7 @@
                 android:textColor="@color/black"
                 style="@style/open_sans_semi_bold_18_black"
                 android:textAlignment="center"
-                app:layout_constraintVertical_bias=".8"
+                app:layout_constraintVertical_bias=".75"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/image"
                 app:layout_constraintStart_toStartOf="parent"
@@ -49,8 +49,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_register_now1"
-                android:layout_width="@dimen/_dp48"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/_115dp"
+                android:layout_height="@dimen/_34dp"
                 android:text="@string/register_now"
                 android:textAllCaps="false"
                 style="@style/open_sans_semi_bold_14"
@@ -58,10 +58,11 @@
                 app:elevation="0dp"
                 android:background="@drawable/bg_button"
                 app:backgroundTint="#3DAE72"
-                android:layout_marginTop="@dimen/_dp6"
+                app:layout_constraintVertical_bias="0.5"
                 app:layout_constraintTop_toBottomOf="@id/tv_registration_dialog"
                 app:layout_constraintStart_toStartOf="@id/tv_registration_dialog"
                 app:layout_constraintEnd_toEndOf="@id/tv_registration_dialog"
+                app:layout_constraintBottom_toBottomOf="parent"
                 android:backgroundTint="@null"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

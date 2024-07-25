@@ -10,7 +10,7 @@
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="80dp"
+        android:minHeight="@dimen/_80dp"
         android:layout_gravity="bottom"
         app:contentInsetStart="0dp"
         app:contentInsetEnd="0dp"
@@ -18,7 +18,7 @@
         android:backgroundTint="@color/white"
         android:clipChildren="true"
         app:fabAlignmentMode="center"
-        app:fabCradleMargin="10dp"
+        app:fabCradleMargin="@dimen/_10dp"
         app:fabCradleRoundedCornerRadius="0dp"
         app:fabCradleVerticalOffset="0dp">
 
@@ -36,15 +36,15 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_scan_qr"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        app:maxImageSize="40dp"
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="@dimen/_80dp"
+        app:maxImageSize="@dimen/_40dp"
         android:contentDescription="@string/qr_code"
         app:backgroundTint="@color/white"
         app:tint="@null"
         app:fabSize="normal"
-        app:fabCustomSize="80dp"
-        android:layout_marginBottom="20dp"
+        app:fabCustomSize="@dimen/_80dp"
+        android:layout_marginBottom="@dimen/_20dp"
         app:srcCompat="@drawable/ic_qr"
         app:layout_anchor="@id/bottomAppBar"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

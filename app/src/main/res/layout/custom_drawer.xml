@@ -27,54 +27,54 @@
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginStart="@dimen/_dp8"
+                android:layout_marginBottom="@dimen/_10dp"
+                android:layout_marginStart="@dimen/_8dp"
                 android:text="@string/settings"
                 style="@style/open_sans_semi_bold_14Black70"/>
             <include
                 android:id="@+id/drawer_option_qr"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="@dimen/_10dp"
                 layout="@layout/drawer_options"/>
             <include
                 android:id="@+id/drawer_option_lang"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="@dimen/_10dp"
                 layout="@layout/drawer_options"/>
             <include
                 android:id="@+id/drawer_option_theme"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="@dimen/_10dp"
                 layout="@layout/drawer_options"/>
             <include
                 android:id="@+id/drawer_option_biometric"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="@dimen/_10dp"
                 layout="@layout/drawer_options"/>
             <include
                 android:id="@+id/drawer_option_scut"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="@dimen/_10dp"
                 layout="@layout/option_switch"/>
 
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:dividerThickness="2dp"
-                app:dividerInsetStart="@dimen/_dp8"
-                app:dividerInsetEnd="@dimen/_dp8"/>
+                app:dividerThickness="@dimen/_2dp"
+                app:dividerInsetStart="@dimen/_8dp"
+                app:dividerInsetEnd="@dimen/_8dp"/>
 
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_dp4"
-                android:layout_marginStart="@dimen/_dp8"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="@dimen/_4dp"
+                android:layout_marginStart="@dimen/_8dp"
+                android:layout_marginBottom="@dimen/_10dp"
                 android:text="@string/account_service"
                 style="@style/open_sans_semi_bold_14Black70"/>
 
@@ -82,28 +82,28 @@
                 android:id="@+id/drawer_option_bank_acc"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="@dimen/_10dp"
                 layout="@layout/drawer_options"/>
             <include
                 android:id="@+id/drawer_option_acc_setting"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="@dimen/_10dp"
                 layout="@layout/drawer_options"/>
 
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:dividerThickness="2dp"
-                app:dividerInsetStart="@dimen/_dp8"
-                app:dividerInsetEnd="@dimen/_dp8"/>
+                app:dividerThickness="@dimen/_2dp"
+                app:dividerInsetStart="@dimen/_8dp"
+                app:dividerInsetEnd="@dimen/_8dp"/>
 
             <com.google.android.material.textview.MaterialTextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="@dimen/_dp4"
-                android:layout_marginStart="@dimen/_dp8"
+                android:layout_marginBottom="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_4dp"
+                android:layout_marginStart="@dimen/_8dp"
                 android:text="@string/support"
                 style="@style/open_sans_semi_bold_14Black70"/>
 
@@ -111,25 +111,25 @@
                 android:id="@+id/drawer_option_feedback"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="@dimen/_10dp"
                 layout="@layout/drawer_options"/>
             <include
                 android:id="@+id/drawer_option_support"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="@dimen/_10dp"
                 layout="@layout/drawer_options"/>
             <include
                 android:id="@+id/drawer_option_refer"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="@dimen/_10dp"
                 layout="@layout/drawer_options"/>
             <include
                 android:id="@+id/drawer_option_limit"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="@dimen/_10dp"
                 layout="@layout/drawer_options"/>
 
         </LinearLayout>
