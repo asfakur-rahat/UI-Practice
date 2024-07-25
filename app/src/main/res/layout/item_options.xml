@@ -2,13 +2,30 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingVertical="@dimen/_dp2"
-    android:paddingHorizontal="@dimen/_dp8"
+    android:background="@color/transparent"
     xmlns:tools="http://schemas.android.com/tools">
     <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         style="@style/open_sans_regular_14"
         android:textColor="#B3000000"
+        android:layout_marginHorizontal="@dimen/_dp8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         tools:text="My Offer"/>
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/underline"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:dividerThickness="@dimen/_dp1"
+        android:layout_marginTop="@dimen/_dp2"
+        app:dividerColor="#3DAE72"
+        app:dividerInsetStart="@dimen/_dp1"
+        app:dividerInsetEnd="@dimen/_dp1"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

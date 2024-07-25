@@ -5,14 +5,18 @@
     android:layout_height="match_parent"
     tools:context=".presentation.home.HomeFragment">
 
-    <include
-        android:id="@+id/profile"
-        layout="@layout/profile_section"/>
 
     <include
+        android:id="@+id/profile"
+        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        layout="@layout/profile_section"/>
+    <include
         android:id="@+id/basic_popup"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
         android:visibility="gone"
-        tools:visibility="visible"
+        tools:visibility="gone"
         layout="@layout/basic_popup"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

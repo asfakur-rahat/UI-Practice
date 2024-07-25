@@ -177,6 +177,11 @@ class HomeFragment : Fragment(layout.fragment_home) {
         binding.profile.btnExplore.visibility = View.GONE
         binding.profile.tvUserTag.visibility = View.GONE
         binding.profile.llTransactions.visibility = View.VISIBLE
+
+//        binding.profile.llRegistration.visibility = View.VISIBLE
+//        binding.profile.tvRegistration.visibility = View.VISIBLE
+//        binding.profile.btnRegisterNow.visibility = View.VISIBLE
+
         initItems()
         initMainListener()
     }

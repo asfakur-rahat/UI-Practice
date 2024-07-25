@@ -1,6 +1,7 @@
 package com.ar.ui_practice.data.demo
 
 import com.ar.ui_practice.R.drawable.*
+import com.ar.ui_practice.data.model.Offer
 import com.ar.ui_practice.data.model.Service
 import com.ar.ui_practice.data.model.Services
 import com.ar.ui_practice.data.model.ShortcutData
@@ -63,6 +64,52 @@ object DemoData {
             id = 2,
             title = "Others",
             Others
+        )
+    )
+
+    val Options = listOf(
+        "Internet",
+        "My Offer",
+        "Call Rate",
+        "Minute",
+        "Bundle"
+    )
+    var Offers = listOf(
+        Offer(
+            internet = "50 GB",
+            min = "100 Min",
+            limit = "7 Days",
+            price = "169"
+        ),
+        Offer(
+            internet = "50 GB",
+            sms = "100 SMS",
+            limit = "7 Days",
+            price = "169"
+        ),
+        Offer(
+            internet = "50 GB",
+            min = "100 Min",
+            limit = "7 Days",
+            price = "169"
+        ),
+        Offer(
+            internet = "50 GB",
+            sms = "100 SMS",
+            limit = "7 Days",
+            price = "169"
+        ),
+        Offer(
+            internet = "50 GB",
+            min = "100 Min",
+            limit = "7 Days",
+            price = "169"
+        ),
+        Offer(
+            internet = "50 GB",
+            sms = "100 SMS",
+            limit = "7 Days",
+            price = "169"
         )
     )
 }

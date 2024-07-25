@@ -3,15 +3,15 @@
     <!--    DP sizes-->
     <dimen name="_dp1">3dp</dimen>
     <dimen name="_dp2">6dp</dimen>
-    <dimen name="_dp4">10dp</dimen>
-    <dimen name="_dp6">15dp</dimen>
+    <dimen name="_dp4">12dp</dimen>
+    <dimen name="_dp6">18dp</dimen>
     <dimen name="_dp8">24dp</dimen>
     <dimen name="_dp10">30dp</dimen>
     <dimen name="_dp12">36dp</dimen>
     <dimen name="_dp16">48dp</dimen>
-    <dimen name="_dp18">60dp</dimen>
+    <dimen name="_dp18">54dp</dimen>
     <dimen name="_dp24">72dp</dimen>
-    <dimen name="_dp32">120dp</dimen>
+    <dimen name="_dp32">96dp</dimen>
     <dimen name="_dp48">144dp</dimen>
     <dimen name="_dp64">192dp</dimen>
     <dimen name="_dp20">60dp</dimen>
@@ -26,10 +26,10 @@
     <dimen name="_sp1">3sp</dimen>
     <dimen name="_sp2">6sp</dimen>
     <dimen name="_sp4">12sp</dimen>
-    <dimen name="_sp6">14sp</dimen>
-    <dimen name="_sp8">16sp</dimen>
-    <dimen name="_sp10">18sp</dimen>
-    <dimen name="_sp12">22sp</dimen>
+    <dimen name="_sp6">18sp</dimen>
+    <dimen name="_sp8">24sp</dimen>
+    <dimen name="_sp10">30sp</dimen>
+    <dimen name="_sp12">36sp</dimen>
     <dimen name="_sp16">48sp</dimen>
     <dimen name="_sp18">54sp</dimen>
     <dimen name="_sp24">72sp</dimen>
@@ -43,5 +43,4 @@
     <dimen name="_sp100">300sp</dimen>
     <dimen name="_sp150">450sp</dimen>
     <dimen name="_sp200">600sp</dimen>
-
 </resources>

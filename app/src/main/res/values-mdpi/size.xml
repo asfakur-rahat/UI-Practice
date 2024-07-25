@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-<!--    DP sizes-->
+    <!--    DP sizes-->
     <dimen name="_dp1">1dp</dimen>
     <dimen name="_dp2">2dp</dimen>
     <dimen name="_dp4">4dp</dimen>
@@ -23,7 +22,7 @@
     <dimen name="_dp150">150dp</dimen>
     <dimen name="_dp200">200dp</dimen>
 
-<!--    Text Sizes-->
+    <!--    Text Sizes-->
     <dimen name="_sp1">1sp</dimen>
     <dimen name="_sp2">2sp</dimen>
     <dimen name="_sp4">4sp</dimen>
@@ -44,6 +43,4 @@
     <dimen name="_sp100">100sp</dimen>
     <dimen name="_sp150">150sp</dimen>
     <dimen name="_sp200">200sp</dimen>
-
-
 </resources>
