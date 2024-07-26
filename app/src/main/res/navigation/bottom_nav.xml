@@ -32,5 +32,12 @@
         android:id="@+id/topUpFragment"
         android:name="com.ar.ui_practice.presentation.top_up.TopUpFragment"
         android:label="fragment_top_up"
-        tools:layout="@layout/fragment_top_up" />
+        tools:layout="@layout/fragment_top_up" >
+        <argument
+            android:name="Name"
+            app:argType="string" />
+        <argument
+            android:name="Number"
+            app:argType="string" />
+    </fragment>
 </navigation>

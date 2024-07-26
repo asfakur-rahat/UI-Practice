@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity(), HomeListener {
             v.updateLayoutParams<MarginLayoutParams> {
                 leftMargin = systemBars.left
                 rightMargin = systemBars.right
-                bottomMargin = systemBars.bottom
             }
             insets
         }

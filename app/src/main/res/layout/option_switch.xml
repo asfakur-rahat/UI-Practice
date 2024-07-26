@@ -32,7 +32,7 @@
         style="@style/Custom.Switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_4dp"
+        android:layout_marginEnd="@dimen/_5dp"
         android:theme="@style/Custom.Switch"
         app:layout_constraintBottom_toBottomOf="@id/option_name"
         app:layout_constraintTop_toTopOf="@id/option_name"

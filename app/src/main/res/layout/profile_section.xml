@@ -13,14 +13,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bg_home"/>
+        app:srcCompat="@drawable/bg_home" />
     <!--    Profile Pic-->
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/profile_image"
         android:layout_width="@dimen/_48dp"
         android:layout_height="@dimen/_48dp"
-        android:layout_marginStart="@dimen/_8dp"
-        android:layout_marginTop="@dimen/_60dp"
+        android:layout_marginStart="@dimen/_14dp"
+        android:layout_marginTop="@dimen/_56dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,10 +29,10 @@
     <!--    Name-->
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_name"
+        style="@style/open_sans_semi_bold_18_white"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_4dp"
-        style="@style/open_sans_semi_bold_18_white"
         app:layout_constraintBottom_toBottomOf="@+id/profile_image"
         app:layout_constraintEnd_toStartOf="@id/ll_icons"
         app:layout_constraintStart_toEndOf="@+id/profile_image"
@@ -41,10 +41,10 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_user_tag"
+        style="@style/open_sans_semi_bold_12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#B3FFFFFF"
-        style="@style/open_sans_semi_bold_12"
         app:layout_constraintStart_toStartOf="@id/tv_name"
         app:layout_constraintTop_toBottomOf="@id/tv_name"
         tools:text="Basic" />
@@ -53,8 +53,9 @@
         android:id="@+id/ll_icons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_4dp"
+        android:layout_marginEnd="@dimen/_10dp"
         android:orientation="horizontal"
+        android:padding="@dimen/_5dp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_name">
@@ -62,24 +63,24 @@
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_2dp"
+            android:layout_margin="@dimen/_6dp"
             app:srcCompat="@drawable/ic_star" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_2dp"
+            android:layout_margin="@dimen/_6dp"
             app:srcCompat="@drawable/ic_notification" />
     </LinearLayout>
     <!--    Balance-->
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_balance_tag"
+        style="@style/open_sans_semi_bold_14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_8dp"
         android:text="@string/balance"
         android:textColor="#B3FFFFFF"
-        style="@style/open_sans_semi_bold_14"
         app:layout_constraintStart_toStartOf="@id/profile_image"
         app:layout_constraintTop_toBottomOf="@id/profile_image" />
 
@@ -96,12 +97,12 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_balance"
+        style="@style/open_sans_semi_bold_22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_2dp"
         android:layout_marginTop="@dimen/_1dp"
         android:textColor="@color/white"
-        style="@style/open_sans_semi_bold_22"
         app:layout_constraintStart_toEndOf="@id/iv_currency"
         app:layout_constraintTop_toBottomOf="@id/tv_balance_tag"
         tools:text="4,00,000" />
@@ -110,7 +111,7 @@
         android:id="@+id/balance_toogle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_2dp"
+        android:layout_marginStart="@dimen/_6dp"
         app:layout_constraintBottom_toBottomOf="@id/tv_balance"
         app:layout_constraintStart_toEndOf="@id/tv_balance"
         app:layout_constraintTop_toTopOf="@id/tv_balance"
@@ -120,7 +121,7 @@
         android:id="@+id/my_pocket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_8dp"
+        android:layout_marginEnd="@dimen/_10dp"
         android:backgroundTint="@color/white"
         android:translationZ="@dimen/_1dp"
         app:cardCornerRadius="@dimen/_8dp"
@@ -133,22 +134,23 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/_8dp"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:gravity="center"
-            android:padding="@dimen/_2dp">
+            android:padding="@dimen/_6dp">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_19dp"
+                android:layout_height="wrap_content"
                 app:srcCompat="@drawable/ic_my_pocket" />
 
             <com.google.android.material.textview.MaterialTextView
+                style="@style/open_sans_regular_14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_2dp"
+                android:layout_marginStart="@dimen/_6dp"
                 android:text="@string/my_pocket"
-                style="@style/open_sans_regular_14"
-                android:textColor="#B3000000"/>
+                android:textColor="#B3000000" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -156,11 +158,12 @@
         android:id="@+id/shortcuts"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/_14dp"
-        android:layout_marginHorizontal="@dimen/_8dp"
+        android:layout_marginHorizontal="@dimen/_13dp"
+        android:layout_marginTop="@dimen/_35dp"
         android:translationZ="1dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="@dimen/_13dp"
+        app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_balance"
@@ -170,7 +173,8 @@
             android:id="@+id/rv_shortcuts"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_2dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/_4dp"
             android:layout_marginBottom="@dimen/_2dp"
             android:clipToPadding="false"
             android:orientation="horizontal"
@@ -181,103 +185,103 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <LinearLayout
-        android:id="@+id/ll_add_money"
-        android:layout_width="match_parent"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/add_money"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginVertical="@dimen/_8dp"
-        android:layout_marginHorizontal="@dimen/_8dp"
-        app:layout_constraintEnd_toEndOf="@id/shortcuts"
-        app:layout_constraintStart_toStartOf="@id/shortcuts"
-        app:layout_constraintTop_toBottomOf="@id/shortcuts">
+        android:layout_marginTop="@dimen/_15dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="@dimen/_11dp"
+        app:cardElevation="0dp"
+        android:layout_marginEnd="@dimen/_15dp"
+        app:layout_constraintEnd_toStartOf="@+id/send_money"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/shortcuts"
+        app:strokeWidth="0dp">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/add_money"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_10dp"
+            android:paddingVertical="@dimen/_10dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_add_money_logo" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/open_sans_regular_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10dp"
+                android:text="@string/add_money" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/send_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="@dimen/_11dp"
+        app:cardElevation="0dp"
+        app:layout_goneMarginStart="@dimen/_15dp"
+        app:layout_constraintBottom_toBottomOf="@id/add_money"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/add_money"
+        app:layout_constraintTop_toTopOf="@id/add_money"
+        app:strokeWidth="0dp">
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_10dp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/white"
-            app:cardCornerRadius="@dimen/_11dp"
-            app:strokeWidth="0dp">
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_10dp"
+            android:paddingVertical="@dimen/_9dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingHorizontal="@dimen/_10dp"
-                android:paddingVertical="@dimen/_5dp">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_send_money_logo" />
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="@dimen/_26dp"
-                    android:layout_height="@dimen/_26dp"
-                    android:layout_gravity="center"
-                    android:scaleType="fitXY"
-                    app:srcCompat="@drawable/ic_add_money_logo" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="@dimen/_10dp"
-                    android:text="@string/add_money"
-                    style="@style/open_sans_regular_14"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/send_money"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_2dp"
-            android:layout_marginStart="@dimen/_10dp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/white"
-            app:cardCornerRadius="@dimen/_11dp"
-            app:strokeWidth="0dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingHorizontal="@dimen/_10dp"
-                android:paddingVertical="@dimen/_5dp">
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="@dimen/_26dp"
-                    android:layout_height="@dimen/_26dp"
-                    android:layout_gravity="center"
-                    android:scaleType="fitXY"
-                    app:srcCompat="@drawable/ic_send_money_logo" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="@dimen/_10dp"
-                    android:text="@string/send_money"
-                    style="@style/open_sans_regular_14"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-    </LinearLayout>
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/open_sans_regular_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10dp"
+                android:text="@string/send_money" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/ll_transactions"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_8dp"
         android:layout_marginTop="@dimen/_15dp"
         android:backgroundTint="@color/white"
         android:visibility="visible"
         app:cardCornerRadius="@dimen/_13dp"
-        app:layout_constraintEnd_toEndOf="@id/ll_add_money"
-        app:layout_constraintStart_toStartOf="@id/ll_add_money"
-        app:layout_constraintTop_toBottomOf="@id/ll_add_money"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="@id/shortcuts"
+        app:layout_constraintStart_toStartOf="@id/shortcuts"
+        app:layout_constraintTop_toBottomOf="@id/send_money"
         app:strokeWidth="0dp"
-        tools:visibility="gone">
+        tools:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -285,11 +289,12 @@
             android:orientation="vertical">
 
             <com.google.android.material.textview.MaterialTextView
+                style="@style/open_sans_semi_bold_16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/_15dp"
-                android:text="@string/transactions"
-                style="@style/open_sans_semi_bold_16" />
+                android:layout_marginStart="@dimen/_8dp"
+                android:padding="@dimen/_7dp"
+                android:text="@string/transactions" />
 
             <View
                 android:layout_width="match_parent"
@@ -305,10 +310,10 @@
                     android:id="@+id/logo"
                     android:layout_width="@dimen/_40dp"
                     android:layout_height="@dimen/_40dp"
-                    android:padding="@dimen/_2dp"
-                    android:gravity="center"
                     android:background="@drawable/bg_circle"
+                    android:gravity="center"
                     android:outlineSpotShadowColor="@color/black"
+                    android:padding="@dimen/_2dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -316,30 +321,30 @@
                     <com.google.android.material.imageview.ShapeableImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/bg_white_circle"
                         android:scaleType="center"
-                        app:srcCompat="@drawable/ic_transfer_logo"
-                        android:background="@drawable/bg_white_circle"/>
+                        app:srcCompat="@drawable/ic_transfer_logo" />
                 </LinearLayout>
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/title"
+                    style="@style/open_sans_semi_bold_14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_2dp"
                     android:text="@string/placeholder_send"
-                    style="@style/open_sans_semi_bold_14"
                     app:layout_constraintBottom_toBottomOf="@id/logo"
                     app:layout_constraintStart_toEndOf="@id/logo"
                     app:layout_constraintTop_toTopOf="@id/logo" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/sign"
+                    style="@style/open_sans_semi_bold_14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="-"
-                    style="@style/open_sans_semi_bold_14"
                     android:textColor="@android:color/holo_red_dark"
                     app:layout_constraintBottom_toBottomOf="@id/title"
                     app:layout_constraintEnd_toStartOf="@id/currency"
@@ -351,6 +356,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginEnd="@dimen/_1dp"
+                    android:tint="@android:color/holo_red_dark"
                     app:layout_constraintBottom_toBottomOf="@id/sign"
                     app:layout_constraintEnd_toStartOf="@id/amount"
                     app:layout_constraintTop_toTopOf="@id/sign"
@@ -358,12 +364,12 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/amount"
+                    style="@style/open_sans_semi_bold_14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginEnd="@dimen/_2dp"
                     android:text="10,000.00"
-                    style="@style/open_sans_semi_bold_14"
                     android:textColor="@android:color/holo_red_dark"
                     app:layout_constraintBottom_toBottomOf="@id/currency"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -380,10 +386,10 @@
                     android:id="@+id/logo1"
                     android:layout_width="@dimen/_40dp"
                     android:layout_height="@dimen/_40dp"
-                    android:padding="@dimen/_2dp"
-                    android:gravity="center"
                     android:background="@drawable/bg_circle"
+                    android:gravity="center"
                     android:outlineSpotShadowColor="@color/black"
+                    android:padding="@dimen/_2dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -391,30 +397,30 @@
                     <com.google.android.material.imageview.ShapeableImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/bg_white_circle"
                         android:scaleType="center"
-                        app:srcCompat="@drawable/ic_add_money"
-                        android:background="@drawable/bg_white_circle"/>
+                        app:srcCompat="@drawable/ic_add_money" />
                 </LinearLayout>
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/title1"
+                    style="@style/open_sans_semi_bold_14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_2dp"
                     android:text="@string/placeholder_add"
-                    style="@style/open_sans_semi_bold_14"
                     app:layout_constraintBottom_toBottomOf="@id/logo1"
                     app:layout_constraintStart_toEndOf="@id/logo1"
                     app:layout_constraintTop_toTopOf="@id/logo1" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/sign1"
+                    style="@style/open_sans_semi_bold_14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="+"
-                    style="@style/open_sans_semi_bold_14"
                     android:textColor="#3DAE72"
                     app:layout_constraintBottom_toBottomOf="@id/title1"
                     app:layout_constraintEnd_toStartOf="@id/currency1"
@@ -433,13 +439,13 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/amount1"
+                    style="@style/open_sans_semi_bold_14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginEnd="@dimen/_2dp"
                     android:text="10,000.00"
                     android:textColor="#3DAE72"
-                    style="@style/open_sans_semi_bold_14"
                     app:layout_constraintBottom_toBottomOf="@id/currency1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/currency1" />
@@ -454,10 +460,10 @@
                     android:id="@+id/logo2"
                     android:layout_width="@dimen/_40dp"
                     android:layout_height="@dimen/_40dp"
-                    android:padding="@dimen/_2dp"
-                    android:gravity="center"
                     android:background="@drawable/bg_circle"
+                    android:gravity="center"
                     android:outlineSpotShadowColor="@color/black"
+                    android:padding="@dimen/_2dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -465,30 +471,30 @@
                     <com.google.android.material.imageview.ShapeableImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/bg_white_circle"
                         android:scaleType="center"
-                        app:srcCompat="@drawable/ic_payment_logo"
-                        android:background="@drawable/bg_white_circle"/>
+                        app:srcCompat="@drawable/ic_payment_logo" />
                 </LinearLayout>
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/title2"
+                    style="@style/open_sans_semi_bold_14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_2dp"
                     android:text="@string/placeholder_payment"
-                    style="@style/open_sans_semi_bold_14"
                     app:layout_constraintBottom_toBottomOf="@id/logo2"
                     app:layout_constraintStart_toEndOf="@id/logo2"
                     app:layout_constraintTop_toTopOf="@id/logo2" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/sign2"
+                    style="@style/open_sans_semi_bold_14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="-"
-                    style="@style/open_sans_semi_bold_14"
                     android:textColor="@android:color/holo_red_dark"
                     app:layout_constraintBottom_toBottomOf="@id/title2"
                     app:layout_constraintEnd_toStartOf="@id/currency2"
@@ -500,6 +506,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginEnd="@dimen/_1dp"
+                    android:tint="@android:color/holo_red_dark"
                     app:layout_constraintBottom_toBottomOf="@id/sign2"
                     app:layout_constraintEnd_toStartOf="@id/amount2"
                     app:layout_constraintTop_toTopOf="@id/sign2"
@@ -507,12 +514,12 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/amount2"
+                    style="@style/open_sans_semi_bold_14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginEnd="@dimen/_2dp"
                     android:text="5,000.00"
-                    style="@style/open_sans_semi_bold_14"
                     android:textColor="@android:color/holo_red_dark"
                     app:layout_constraintBottom_toBottomOf="@id/currency2"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -525,21 +532,22 @@
                 android:background="#4D000000" />
 
             <com.google.android.material.textview.MaterialTextView
+                style="@style/open_sans_semi_bold_14"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_4dp"
+                android:layout_margin="@dimen/_8dp"
                 android:text="@string/see_all"
-                style="@style/open_sans_semi_bold_14"
                 android:textAlignment="center"
-                android:textColor="#4B9E79"/>
+                android:textColor="#4B9E79" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ll_registration"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_15dp"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="@id/ll_transactions"
         app:layout_constraintStart_toStartOf="@id/ll_transactions"
         app:layout_constraintTop_toBottomOf="@id/ll_transactions"
@@ -547,17 +555,18 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_registration"
+        style="@style/open_sans_semi_bold_14Black70"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_15dp"
         android:layout_marginTop="@dimen/_6dp"
         android:text="@string/register_placeholder"
-        style="@style/open_sans_semi_bold_14Black70"
         app:layout_constraintStart_toStartOf="@id/ll_registration"
         app:layout_constraintTop_toTopOf="@id/ll_registration" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_register_now"
+        style="@style/open_sans_semi_bold_14"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_34dp"
         android:layout_marginTop="@dimen/_6dp"
@@ -565,7 +574,6 @@
         android:backgroundTint="@null"
         android:text="@string/register_now"
         android:textAllCaps="false"
-        style="@style/open_sans_semi_bold_14"
         android:textColor="@color/white"
         android:translationZ="1dp"
         app:backgroundTint="#3DAE72"
@@ -575,9 +583,10 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ll_explore"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_15dp"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="@id/ll_registration"
         app:layout_constraintStart_toStartOf="@id/ll_registration"
         app:layout_constraintTop_toBottomOf="@id/ll_registration"
@@ -586,17 +595,18 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_explore"
+        style="@style/open_sans_semi_bold_14Black70"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_15dp"
         android:layout_marginTop="@dimen/_6dp"
         android:text="@string/explore_placeholder"
-        style="@style/open_sans_semi_bold_14Black70"
         app:layout_constraintStart_toStartOf="@id/ll_explore"
         app:layout_constraintTop_toTopOf="@id/ll_explore" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_explore"
+        style="@style/open_sans_semi_bold_14"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_34dp"
         android:layout_marginTop="@dimen/_6dp"
@@ -604,7 +614,6 @@
         android:backgroundTint="@null"
         android:text="@string/explore"
         android:textAllCaps="false"
-        style="@style/open_sans_semi_bold_14"
         android:textColor="@color/white"
         android:translationZ="1dp"
         app:backgroundTint="#3DAE72"

@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_arrow"
-        android:layout_marginEnd="@dimen/_8dp"
+        android:layout_marginEnd="@dimen/_15dp"
         app:layout_constraintBottom_toBottomOf="@id/option_name"
         app:layout_constraintTop_toTopOf="@id/option_name"
         app:layout_constraintEnd_toEndOf="parent"/>

@@ -30,6 +30,9 @@ class ServicesFragment : Fragment(R.layout.fragment_services) {
     }
 
     private fun initView() {
+        binding.actionBar.tvNavTitle.text = "Services"
+        binding.actionBar.ivNavIcon.visibility = View.GONE
+
         binding.rvCategory.adapter = adaptar
         binding.rvCategory.apply {
             setHasFixedSize(true)

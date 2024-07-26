@@ -6,34 +6,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.services.ServicesFragment">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:layout_width="wrap_content"
+    <include
+        android:id="@+id/action_bar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/open_sans_semi_bold_18_black"
+        android:layout_marginTop="@dimen/_40dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="@dimen/_18dp"
-        android:id="@+id/tv_title"
-        android:text="@string/services"/>
+        layout="@layout/action_bar"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_category"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/_8dp"
+        android:layout_marginTop="@dimen/_10dp"
+        android:layout_marginHorizontal="@dimen/_13dp"
         android:paddingBottom="@dimen/_120dp"
         android:clipToPadding="false"
         tools:itemCount="3"
         tools:listitem="@layout/service_category_item"
-        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintTop_toBottomOf="@id/action_bar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
     
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_140dp"
+        android:layout_height="@dimen/_90dp"
         android:background="@drawable/bg_services_bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
