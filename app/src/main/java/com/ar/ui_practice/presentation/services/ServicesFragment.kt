@@ -24,8 +24,8 @@ class ServicesFragment : Fragment(R.layout.fragment_services) {
     }
 
     private fun initAdapter() {
-        adaptar = ServiceCategoryAdapter{ _ ->
-            findNavController().navigate(R.id.action_servicesFragment_to_contactsFragment)
+        adaptar = ServiceCategoryAdapter{ service ->
+            findNavController().navigate(ServicesFragmentDirections.actionServicesFragmentToContactsFragment(service.title))
         }
     }
 

@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
 import com.ar.ui_practice.R
@@ -23,15 +24,16 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts){
     private lateinit var binding: FragmentContactsBinding
     private lateinit var adapter: AllContactsAdapter
     private lateinit var adapter2: AllContactsAdapter
+    private val args: ContactsFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = FragmentContactsBinding.bind(view)
         super.onViewCreated(view, savedInstanceState)
         adapter = AllContactsAdapter{
-            findNavController().navigate(ContactsFragmentDirections.actionContactsFragmentToTopUpFragment(it.name, it.number))
+            findNavController().navigate(ContactsFragmentDirections.actionContactsFragmentToTopUpFragment(it.name, it.number, args.title))
         }
         adapter2 = AllContactsAdapter{
-            Toast.makeText(requireContext(), "Clicked on Recent Contacts ${it.name}", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(ContactsFragmentDirections.actionContactsFragmentToTopUpFragment(it.name, it.number, args.title))
         }
         initView()
         loadContacts()
@@ -46,7 +48,7 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts){
     }
 
     private fun initView() {
-        binding.actionBar.tvNavTitle.text = "Mobile Recharge"
+        binding.actionBar.tvNavTitle.text = args.title
         initTest()
     }
 

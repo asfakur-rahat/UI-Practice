@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_contactsFragment_to_topUpFragment"
             app:destination="@id/topUpFragment" />
+        <argument
+            android:name="title"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/topUpFragment"
@@ -38,6 +41,9 @@
             app:argType="string" />
         <argument
             android:name="number"
+            app:argType="string" />
+        <argument
+            android:name="title"
             app:argType="string" />
     </fragment>
 </navigation>

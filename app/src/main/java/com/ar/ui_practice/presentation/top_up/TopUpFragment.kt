@@ -89,7 +89,7 @@ class TopUpFragment : Fragment() {
     private fun initView() {
         binding.contactName.text = args.name
         binding.contactNumber.text = args.number
-        binding.actionBar.tvNavTitle.text = "Mobile Recharge"
+        binding.actionBar.tvNavTitle.text = args.title
         binding.offers.apply {
             adapter = OffersAdapter { position ->
                 viewPager.setCurrentItem(position, true)
