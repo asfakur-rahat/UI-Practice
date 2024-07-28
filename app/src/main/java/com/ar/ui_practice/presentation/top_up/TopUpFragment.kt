@@ -1,10 +1,14 @@
 package com.ar.ui_practice.presentation.top_up
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
@@ -14,6 +18,7 @@ import com.ar.ui_practice.adapter.top_up.OffersAdapter
 import com.ar.ui_practice.adapter.top_up.SuggestedAmountAdapter
 import com.ar.ui_practice.data.demo.DemoData
 import com.ar.ui_practice.databinding.FragmentTopUpBinding
+import java.nio.file.WatchEvent
 
 
 class TopUpFragment : Fragment() {
@@ -42,6 +47,37 @@ class TopUpFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initItems()
         initView()
+        initListener()
+    }
+
+    private fun initListener() {
+        binding.actionBar.ivNavIcon.setOnClickListener {
+            findNavController().popBackStack()
+        }
+        binding.etAmount.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if(s.isNullOrEmpty()){
+                    binding.btnConfirm.setImageResource(R.drawable.ic_action_btn)
+                    binding.btnConfirm.setOnClickListener {
+
+                    }
+                }else {
+                    binding.btnConfirm.setImageResource(R.drawable.ic_action_bth_active)
+                    binding.btnConfirm.setOnClickListener {
+                        Toast.makeText(requireContext(), "The entered amount is -> $s", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+        })
     }
 
     private fun initItems() {
@@ -78,7 +114,7 @@ class TopUpFragment : Fragment() {
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             adapter = suggestionAdapter
         }
-        suggestionAdapter.submitList(listOf("50","100","200","300","400","500","600","700"))
+        suggestionAdapter.submitList(listOf("69","99","199","299","299","369","489","1000"))
     }
 
     override fun onDestroyView() {

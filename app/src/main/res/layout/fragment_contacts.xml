@@ -57,6 +57,7 @@
                         android:padding="@dimen/_4dp"
                         android:gravity="center">
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_contact"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="6"
@@ -67,6 +68,7 @@
                             android:textSize="@dimen/_14sp"
                             android:inputType="text"/>
                         <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/confirm_btn"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"

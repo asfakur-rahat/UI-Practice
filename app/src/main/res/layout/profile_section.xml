@@ -189,32 +189,33 @@
         android:id="@+id/add_money"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/shortcuts"
+        app:layout_constraintStart_toStartOf="@id/shortcuts"
         android:layout_marginTop="@dimen/_15dp"
         android:layout_weight="1"
         android:backgroundTint="@color/white"
         app:cardCornerRadius="@dimen/_11dp"
         app:cardElevation="0dp"
-        android:layout_marginEnd="@dimen/_15dp"
-        app:layout_constraintEnd_toStartOf="@+id/send_money"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/shortcuts"
-        app:strokeWidth="0dp">
+        app:strokeWidth="0dp"
+        tools:layout_editor_absoluteY="407dp">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:orientation="horizontal"
             android:paddingHorizontal="@dimen/_10dp"
             android:paddingVertical="@dimen/_10dp">
 
             <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_add_money_logo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10dp"
                 android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_add_money_logo" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -223,40 +224,45 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="@dimen/_10dp"
-                android:text="@string/add_money" />
-        </LinearLayout>
+                android:layout_marginEnd="@dimen/_10dp"
+                android:text="@string/add_money"
+                app:layout_constraintBottom_toBottomOf="@id/iv_add_money_logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_add_money_logo"
+                app:layout_constraintTop_toTopOf="@id/iv_add_money_logo" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/send_money"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10dp"
-        android:layout_weight="1"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="@id/add_money"
+        app:layout_constraintBottom_toBottomOf="@id/add_money"
+        app:layout_constraintEnd_toEndOf="@id/shortcuts"
         android:backgroundTint="@color/white"
         app:cardCornerRadius="@dimen/_11dp"
         app:cardElevation="0dp"
-        app:layout_goneMarginStart="@dimen/_15dp"
-        app:layout_constraintBottom_toBottomOf="@id/add_money"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/add_money"
-        app:layout_constraintTop_toTopOf="@id/add_money"
-        app:strokeWidth="0dp">
+        app:strokeWidth="0dp"
+        tools:layout_editor_absoluteX="229dp"
+        tools:layout_editor_absoluteY="408dp">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:orientation="horizontal"
-            android:paddingHorizontal="@dimen/_10dp"
-            android:paddingVertical="@dimen/_9dp">
+            android:paddingHorizontal="@dimen/_10dp">
 
             <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_send_money_logo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_2dp"
-                android:scaleType="fitXY"
+                android:layout_marginStart="@dimen/_10dp"
+                android:scaleType="matrix"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_send_money_logo" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -264,8 +270,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10dp"
-                android:text="@string/send_money" />
-        </LinearLayout>
+                android:layout_marginEnd="@dimen/_10dp"
+                android:text="@string/send_money"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_send_money_logo"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView

@@ -33,7 +33,7 @@
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="My Account"
+                android:text="Mobile Number"
                 android:layout_margin="@dimen/_5dp"
                 style="@style/open_sans_semi_bold_16"/>
             <com.google.android.material.divider.MaterialDivider
@@ -183,16 +183,18 @@
                 android:padding="@dimen/_8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_amount"
                     style="@style/NoUnderlineTextInputEditText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
                     android:hint="Enter amount"
-                    android:inputType="text"
+                    android:inputType="numberDecimal"
                     android:padding="12dp"
                     android:textAlignment="textStart" />
 
                 <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/btn_confirm"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
