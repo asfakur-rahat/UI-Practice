@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.ar.ui_practice.R
 import com.ar.ui_practice.adapter.top_up.OfferViewPagerAdapter
 import com.ar.ui_practice.adapter.top_up.OffersAdapter
+import com.ar.ui_practice.adapter.top_up.SuggestedAmountAdapter
 import com.ar.ui_practice.data.demo.DemoData
 import com.ar.ui_practice.databinding.FragmentTopUpBinding
 
@@ -18,10 +20,13 @@ class TopUpFragment : Fragment() {
     private var _binding: FragmentTopUpBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter: OffersAdapter
+    private lateinit var suggestionAdapter: SuggestedAmountAdapter
     private lateinit var viewPager: ViewPager2
 
 
     private val offers = DemoData.OffersList
+
+    private val args: TopUpFragmentArgs by navArgs()
 
 
     override fun onCreateView(
@@ -35,10 +40,20 @@ class TopUpFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initItems()
         initView()
     }
 
+    private fun initItems() {
+        suggestionAdapter = SuggestedAmountAdapter {
+
+        }
+    }
+
     private fun initView() {
+        binding.contactName.text = args.name
+        binding.contactNumber.text = args.number
+        binding.actionBar.tvNavTitle.text = "Mobile Recharge"
         binding.offers.apply {
             adapter = OffersAdapter { position ->
                 viewPager.setCurrentItem(position, true)
@@ -59,6 +74,11 @@ class TopUpFragment : Fragment() {
                 }
             })
         }
+        binding.rvSuggestedAmount.apply {
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            adapter = suggestionAdapter
+        }
+        suggestionAdapter.submitList(listOf("50","100","200","300","400","500","600","700"))
     }
 
     override fun onDestroyView() {

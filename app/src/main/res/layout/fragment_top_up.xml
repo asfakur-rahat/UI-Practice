@@ -7,13 +7,223 @@
     tools:context=".presentation.top_up.TopUpFragment">
 
     <include
-        android:id="@+id/offers"
-        android:layout_height="wrap_content"
+        android:id="@+id/action_bar"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/_30dp"
+        layout="@layout/action_bar"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/selected_number"
+        android:layout_marginTop="@dimen/_15dp"
+        app:cardCornerRadius="@dimen/_10dp"
+        app:layout_constraintTop_toBottomOf="@id/action_bar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        layout="@layout/layout_offers_card"/>
+        android:layout_marginHorizontal="@dimen/_15dp"
+        android:padding="@dimen/_4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="My Account"
+                android:layout_margin="@dimen/_5dp"
+                style="@style/open_sans_semi_bold_16"/>
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/avatar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_13dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_profile_contact" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/contact_name"
+                    style="@style/open_sans_semi_bold_16"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10dp"
+                    android:text="Maruf Ahmed"
+                    android:textColor="#000000"
+                    app:layout_constraintBottom_toTopOf="@+id/contact_number"
+                    app:layout_constraintStart_toEndOf="@id/avatar"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/contact_number"
+                    style="@style/open_sans_regular_14"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5dp"
+                    android:text="01710000000"
+                    android:textColor="#B3000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/contact_name"
+                    app:layout_constraintTop_toBottomOf="@+id/contact_name" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/balance_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/open_sans_regular_14"
+        android:textColor="#B3000000"
+        android:layout_marginTop="@dimen/_15dp"
+        app:layout_constraintTop_toBottomOf="@id/selected_number"
+        app:layout_constraintStart_toStartOf="@id/selected_number"
+        android:text="Available Balance"/>
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/currency_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_bdt"
+        android:tint="@color/black"
+        android:layout_marginStart="@dimen/_3dp"
+        app:layout_constraintTop_toTopOf="@id/balance_tag"
+        app:layout_constraintBottom_toBottomOf="@id/balance_tag"
+        app:layout_constraintStart_toEndOf="@id/balance_tag"/>
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/open_sans_regular_14"
+        android:layout_marginStart="@dimen/_3dp"
+        app:layout_constraintTop_toTopOf="@id/balance_tag"
+        app:layout_constraintBottom_toBottomOf="@id/balance_tag"
+        app:layout_constraintStart_toEndOf="@id/currency_icon"
+        android:text="4,00,000"/>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/add_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/transparent"
+        app:layout_constraintTop_toTopOf="@id/balance_tag"
+        app:layout_constraintBottom_toBottomOf="@id/balance_tag"
+        app:layout_constraintEnd_toEndOf="@id/selected_number"
+        app:cardCornerRadius="@dimen/_8dp"
+        app:strokeWidth="@dimen/_1dp"
+        app:strokeColor="@color/silver_gray"
+        app:cardElevation="0dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_5dp">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_add_money_logo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/open_sans_regular_14"
+                android:layout_marginStart="@dimen/_3dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="Add Money"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15dp"
+        android:layout_marginTop="@dimen/_15dp"
+        app:cardCornerRadius="@dimen/_10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_money">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/open_sans_semi_bold_16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_6dp"
+                android:text="Amount" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/_8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/NoUnderlineTextInputEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:hint="Enter amount"
+                    android:inputType="text"
+                    android:padding="12dp"
+                    android:textAlignment="textStart" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/ic_action_btn" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_suggested_amount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15dp"
+        app:layout_constraintTop_toBottomOf="@id/search"
+        app:layout_constraintStart_toStartOf="@id/search"
+        app:layout_constraintEnd_toEndOf="@id/search"
+        tools:itemCount="10"
+        tools:listitem="@layout/item_suggested_amount"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"/>
+
+    <include
+        android:id="@+id/offers"
+        layout="@layout/layout_offers_card"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_10dp"
+        android:layout_marginBottom="@dimen/_10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_suggested_amount" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

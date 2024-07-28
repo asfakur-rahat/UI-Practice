@@ -40,6 +40,9 @@ class OffersAdapter(
                 }
             }else{
                 binding.underline.visibility = View.GONE
+                binding.apply {
+                    optionName.setTextColor(Color.parseColor("#B3000000"))
+                }
             }
         }
     }

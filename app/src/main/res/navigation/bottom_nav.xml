@@ -34,10 +34,10 @@
         android:label="fragment_top_up"
         tools:layout="@layout/fragment_top_up" >
         <argument
-            android:name="Name"
+            android:name="name"
             app:argType="string" />
         <argument
-            android:name="Number"
+            android:name="number"
             app:argType="string" />
     </fragment>
 </navigation>

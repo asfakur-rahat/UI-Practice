@@ -23,7 +23,6 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts){
         binding = FragmentContactsBinding.bind(view)
         super.onViewCreated(view, savedInstanceState)
         adapter = AllContactsAdapter{
-            //Toast.makeText(requireContext(), "Clicked on All Contacts ${it.name}", Toast.LENGTH_SHORT).show()
             findNavController().navigate(ContactsFragmentDirections.actionContactsFragmentToTopUpFragment(it.name, it.number))
         }
         adapter2 = AllContactsAdapter{

@@ -69,7 +69,113 @@ object DemoData {
         )
     )
 
-    val OfferList = listOf(
+    private val internetOfferList = listOf(
+        Offer(
+            expire = "30 Days",
+            price = "500",
+            bundle = listOf(
+                OfferItem(
+                    amount = "50 GB",
+                    icon = ic_web
+                )
+            )
+        ),
+        Offer(
+            expire = "30 Days",
+            price = "300",
+            bundle = listOf(
+                OfferItem(
+                    amount = "30 GB",
+                    icon = ic_web
+                )
+            )
+        ),
+        Offer(
+            expire = "15 Days",
+            price = "150",
+            bundle = listOf(
+                OfferItem(
+                    amount = "15 GB",
+                    icon = ic_web
+                )
+            )
+        ),
+        Offer(
+            expire = "7 Days",
+            price = "100",
+            bundle = listOf(
+                OfferItem(
+                    amount = "7 GB",
+                    icon = ic_web
+                )
+            )
+        ),
+        Offer(
+            expire = "3 Days",
+            price = "89",
+            bundle = listOf(
+                OfferItem(
+                    amount = "3 GB",
+                    icon = ic_web
+                )
+            )
+        )
+    )
+
+    private val minuteOfferList = listOf(
+        Offer(
+            expire = "30 Days",
+            price = "500",
+            bundle = listOf(
+                OfferItem(
+                    amount = "500 Min",
+                    icon = ic_phone
+                )
+            )
+        ),
+        Offer(
+            expire = "30 Days",
+            price = "500",
+            bundle = listOf(
+                OfferItem(
+                    amount = "500 Min",
+                    icon = ic_phone
+                )
+            )
+        ),
+        Offer(
+            expire = "30 Days",
+            price = "300",
+            bundle = listOf(
+                OfferItem(
+                    amount = "300 Min",
+                    icon = ic_phone
+                )
+            )
+        ),
+        Offer(
+            expire = "15 Days",
+            price = "199",
+            bundle = listOf(
+                OfferItem(
+                    amount = "200 Min",
+                    icon = ic_phone
+                )
+            )
+        ),
+        Offer(
+            expire = "3 Days",
+            price = "70",
+            bundle = listOf(
+                OfferItem(
+                    amount = "50 Min",
+                    icon = ic_phone
+                )
+            )
+        )
+    )
+
+    private val myOfferList = listOf(
         Offer(
             expire = "30 Days",
             price = "500",
@@ -81,16 +187,42 @@ object DemoData {
             )
         ),
         Offer(
-            expire = "15 Days",
-            price = "300",
+            expire = "30 Days",
+            price = "500",
             bundle = listOf(
                 OfferItem(
-                    amount = "5 GB",
-                    icon = ic_web
-                ),
-                OfferItem(
-                    amount = "100 Min",
+                    amount = "500 Min",
                     icon = ic_phone
+                )
+            )
+        ),
+        Offer(
+            expire = "30 Days",
+            price = "100",
+            bundle = listOf(
+                OfferItem(
+                    amount = "300 SMS",
+                    icon = ic_sms
+                )
+            )
+        ),
+        Offer(
+            expire = "15 Days",
+            price = "199",
+            bundle = listOf(
+                OfferItem(
+                    amount = "20 GB",
+                    icon = ic_web
+                )
+            )
+        ),
+        Offer(
+            expire = "7 Days",
+            price = "129",
+            bundle = listOf(
+                OfferItem(
+                    amount = "10 GB",
+                    icon = ic_web
                 )
             )
         ),
@@ -114,26 +246,133 @@ object DemoData {
         )
     )
 
+    private val callRateOfferList = listOf(
+        Offer(
+            expire = "60 Days",
+            price = "399",
+            bundle = listOf(
+                OfferItem(
+                    amount = "69 Poisa/Min",
+                    icon = ic_phone
+                )
+            )
+        ),
+        Offer(
+            expire = "30 Days",
+            price = "299",
+            bundle = listOf(
+                OfferItem(
+                    amount = "69 Poisa/Min",
+                    icon = ic_phone
+                )
+            )
+        ),
+        Offer(
+            expire = "15 Days",
+            price = "99",
+            bundle = listOf(
+                OfferItem(
+                    amount = "69 Poisa/Min",
+                    icon = ic_phone
+                )
+            )
+        )
+    )
+    private val bundleOfferList = listOf(
+        Offer(
+            expire = "30 Days",
+            price = "599",
+            bundle = listOf(
+                OfferItem(
+                    amount = "40 GB",
+                    icon = ic_web
+                ),
+                OfferItem(
+                    amount = "100 Min",
+                    icon = ic_phone
+                ),
+                OfferItem(
+                    amount = "150 SMS",
+                    icon = ic_sms
+                )
+            )
+        ),
+        Offer(
+            expire = "15 Days",
+            price = "199",
+            bundle = listOf(
+                OfferItem(
+                    amount = "5 GB",
+                    icon = ic_web
+                ),
+                OfferItem(
+                    amount = "10 Min",
+                    icon = ic_phone
+                ),
+                OfferItem(
+                    amount = "100 SMS",
+                    icon = ic_sms
+                )
+            )
+        ),
+        Offer(
+            expire = "7 Days",
+            price = "129",
+            bundle = listOf(
+                OfferItem(
+                    amount = "3 GB",
+                    icon = ic_web
+                ),
+                OfferItem(
+                    amount = "100 Min",
+                    icon = ic_phone
+                ),
+                OfferItem(
+                    amount = "50 SMS",
+                    icon = ic_sms
+                )
+            )
+        ),
+        Offer(
+            expire = "3 Days",
+            price = "99",
+            bundle = listOf(
+                OfferItem(
+                    amount = "3 GB",
+                    icon = ic_web
+                ),
+                OfferItem(
+                    amount = "50 Min",
+                    icon = ic_phone
+                ),
+                OfferItem(
+                    amount = "50 SMS",
+                    icon = ic_sms
+                )
+            )
+        )
+    )
+
     val OffersList = listOf(
         Offers(
             category = "Internet",
-            offerList = OfferList
+            offerList = internetOfferList
         ),
         Offers(
             category = "My Offer",
-            offerList = OfferList
+            offerList = myOfferList
         ),
         Offers(
             category = "Call Rate",
-            offerList = OfferList
+            offerList = callRateOfferList
         ),
         Offers(
             category = "Minute",
-            offerList = OfferList
+            offerList = minuteOfferList
         ),
         Offers(
             category = "Bundle",
-            offerList = OfferList
+            offerList = bundleOfferList
         )
     )
 }
