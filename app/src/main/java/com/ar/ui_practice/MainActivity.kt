@@ -44,6 +44,9 @@ class MainActivity : AppCompatActivity(), HomeListener {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment
         val navController = navHostFragment.navController
         binding.bottomBar.bottomNavigationView.setupWithNavController(navController)
+
+        binding.bottomBar.bottomNavigationView.menu.findItem(R.id.chat).setIcon(icon_chats_no_notification)
+
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.homeFragment ->{

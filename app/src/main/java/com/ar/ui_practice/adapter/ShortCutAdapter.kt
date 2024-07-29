@@ -59,12 +59,12 @@ class ShortCutAdapter(
                 override fun areItemsTheSame(
                     oldItem: ShortcutData,
                     newItem: ShortcutData,
-                ): Boolean = oldItem.title == newItem.title
+                ): Boolean = oldItem == newItem
 
                 override fun areContentsTheSame(
                     oldItem: ShortcutData,
                     newItem: ShortcutData,
-                ): Boolean = oldItem == newItem
+                ): Boolean = oldItem.title == newItem.title
             }
     }
 }
