@@ -46,5 +46,13 @@
         <argument
             android:name="title"
             app:argType="string" />
+        <action
+            android:id="@+id/action_topUpFragment_to_confirmFragment"
+            app:destination="@id/confirmFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/confirmFragment"
+        android:name="com.ar.ui_practice.presentation.transaction.ConfirmFragment"
+        android:label="fragment_confirm"
+        tools:layout="@layout/fragment_confirm" />
 </navigation>

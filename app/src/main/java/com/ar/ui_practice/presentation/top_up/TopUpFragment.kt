@@ -18,10 +18,11 @@ import com.ar.ui_practice.adapter.top_up.OffersAdapter
 import com.ar.ui_practice.adapter.top_up.SuggestedAmountAdapter
 import com.ar.ui_practice.data.demo.DemoData
 import com.ar.ui_practice.databinding.FragmentTopUpBinding
+import com.ar.ui_practice.presentation.top_up.fragment.OfferListFragment
 import java.nio.file.WatchEvent
 
 
-class TopUpFragment : Fragment() {
+class TopUpFragment : Fragment(), OfferListFragment.OfferListener {
     private var _binding: FragmentTopUpBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter: OffersAdapter
@@ -68,7 +69,7 @@ class TopUpFragment : Fragment() {
                 }else {
                     binding.btnConfirm.setImageResource(R.drawable.ic_action_bth_active)
                     binding.btnConfirm.setOnClickListener {
-                        Toast.makeText(requireContext(), "The entered amount is -> $s", Toast.LENGTH_SHORT).show()
+                        findNavController().navigate(TopUpFragmentDirections.actionTopUpFragmentToConfirmFragment())
                     }
                 }
             }
@@ -120,5 +121,10 @@ class TopUpFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onOfferClick() {
+        println("Inside TopUp")
+        findNavController().navigate(TopUpFragmentDirections.actionTopUpFragmentToConfirmFragment())
     }
 }

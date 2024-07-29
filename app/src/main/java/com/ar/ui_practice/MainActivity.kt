@@ -13,12 +13,14 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updateLayoutParams
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.ar.ui_practice.R.drawable.*
 import com.ar.ui_practice.R.string.*
 import com.ar.ui_practice.databinding.ActivityMainBinding
 import com.ar.ui_practice.presentation.home.HomeListener
+import com.ar.ui_practice.presentation.top_up.fragment.OfferListFragment
 
 class MainActivity : AppCompatActivity(), HomeListener {
     private lateinit var binding: ActivityMainBinding
