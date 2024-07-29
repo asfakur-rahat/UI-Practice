@@ -1,6 +1,7 @@
 package com.ar.ui_practice.data.demo
 
 import com.ar.ui_practice.R.drawable.*
+import com.ar.ui_practice.data.model.MobileOperator
 import com.ar.ui_practice.data.model.Service
 import com.ar.ui_practice.data.model.Services
 import com.ar.ui_practice.data.model.ShortcutData
@@ -50,6 +51,41 @@ object DemoData {
         Service(6, ic_cable_tv, "Cable TV"),
         Service(7, ic_gas, "Gas"),
     )
+
+
+    val operatorList = listOf(
+        MobileOperator(
+            id = 0,
+            title = "Grameen Phone",
+            icon = ic_gp
+        ),
+        MobileOperator(
+            id = 1,
+            title = "Airtel",
+            icon = ic_ar
+        ),
+        MobileOperator(
+            id = 2,
+            title = "Robi",
+            icon = ic_rb
+        ),
+        MobileOperator(
+            id = 3,
+            title = "Banglalink",
+            icon = ic_bl
+        ),
+        MobileOperator(
+            id = 0,
+            title = "Teletok",
+            icon = ic_tltc
+        ),
+        MobileOperator(
+            id = 0,
+            title = "Skitto",
+            icon = ic_skitto
+        )
+    )
+
 
     val ServiceCategories = listOf(
         Services(

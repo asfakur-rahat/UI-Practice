@@ -38,7 +38,8 @@
         tools:layout="@layout/fragment_top_up" >
         <argument
             android:name="name"
-            app:argType="string" />
+            app:argType="string"
+            android:defaultValue="Unknown" />
         <argument
             android:name="number"
             app:argType="string" />

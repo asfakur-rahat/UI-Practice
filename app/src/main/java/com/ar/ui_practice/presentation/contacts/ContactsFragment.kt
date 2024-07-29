@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
 import com.ar.ui_practice.R
 import com.ar.ui_practice.adapter.AllContactsAdapter
+import com.ar.ui_practice.bottomSheet.OperatorSelector
+import com.ar.ui_practice.data.demo.DemoData
 import com.ar.ui_practice.data.model.Contacts
 import com.ar.ui_practice.databinding.FragmentContactsBinding
 import kotlin.random.Random
@@ -32,20 +34,27 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts){
         binding = FragmentContactsBinding.bind(view)
         super.onViewCreated(view, savedInstanceState)
         adapter = AllContactsAdapter{
-            findNavController().navigate(ContactsFragmentDirections.actionContactsFragmentToTopUpFragment(it.name, it.number, args.title))
+            selectOperator(it.name, it.number)
         }
         adapter2 = AllContactsAdapter{
-            findNavController().navigate(ContactsFragmentDirections.actionContactsFragmentToTopUpFragment(it.name, it.number, args.title))
+            selectOperator(it.name, it.number)
         }
         initView()
         initListener()
+    }
+
+    private fun selectOperator(name: String = "Unknown", number: String) {
+        val operatorSelector = OperatorSelector({
+            findNavController().navigate(ContactsFragmentDirections.actionContactsFragmentToTopUpFragment(name = name, number = number, title = args.title))
+        }, operatorData = DemoData.operatorList)
+
+        operatorSelector.show(requireActivity().supportFragmentManager, "OperatorSelector")
     }
 
     private fun initListener() {
         binding.actionBar.ivNavIcon.setOnClickListener {
             findNavController().popBackStack()
         }
-        //binding.
     }
 
     private fun initView() {
@@ -77,8 +86,20 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts){
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if(s.isNullOrEmpty()){
                     binding.confirmBtn.setImageResource(R.drawable.ic_action_btn)
+                    binding.confirmBtn.setOnClickListener {
+
+                    }
                 }else{
                     binding.confirmBtn.setImageResource(R.drawable.ic_action_bth_active)
+                    if (s.length == 11){
+                        binding.confirmBtn.setOnClickListener {
+                            selectOperator(number = s.toString())
+                        }
+                    }else{
+                        binding.confirmBtn.setOnClickListener {
+
+                        }
+                    }
                 }
             }
 
