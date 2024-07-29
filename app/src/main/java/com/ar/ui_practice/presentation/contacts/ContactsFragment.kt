@@ -1,26 +1,20 @@
 package com.ar.ui_practice.presentation.contacts
 
-import android.graphics.drawable.VectorDrawable
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
 import com.ar.ui_practice.R
-import com.ar.ui_practice.adapter.AllContactsAdapter
+import com.ar.ui_practice.adapter.contacts.AllContactsAdapter
 import com.ar.ui_practice.bottomSheet.OperatorSelector
 import com.ar.ui_practice.data.demo.DemoData
 import com.ar.ui_practice.data.model.Contacts
 import com.ar.ui_practice.databinding.FragmentContactsBinding
-import kotlin.random.Random
 
 class ContactsFragment : Fragment(R.layout.fragment_contacts){
 

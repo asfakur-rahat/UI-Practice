@@ -1,22 +1,19 @@
-package com.ar.ui_practice.adapter
+package com.ar.ui_practice.adapter.home
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.ar.ui_practice.R
 import com.ar.ui_practice.data.model.ShortcutData
-import com.ar.ui_practice.databinding.ShortCutItemBinding
+import com.ar.ui_practice.databinding.ShortCutSelectionItemBinding
 
-class ShortCutAdapter(
+class ShortCutSelectorAdapter(
     private val onClick: (ShortcutData) -> Unit,
-    private val onLongClick: () -> Unit,
-) : ListAdapter<ShortcutData, ShortCutAdapter.ShortCutViewHolder>(DiffChecker) {
+) : ListAdapter<ShortcutData, ShortCutSelectorAdapter.ShortCutSelectorViewHolder>(DiffChecker) {
 
-    class ShortCutViewHolder(
-        private val binding: ShortCutItemBinding,
+    class ShortCutSelectorViewHolder(
+        private val binding: ShortCutSelectionItemBinding,
         private val onClick: (ShortcutData) -> Unit,
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(data: ShortcutData) {
@@ -25,32 +22,23 @@ class ShortCutAdapter(
             binding.root.setOnClickListener {
                 onClick(data)
             }
-            if(data.removeIcon){
-                binding.ivRemoveShortcut.visibility = View.VISIBLE
-            }else{
-                binding.ivRemoveShortcut.visibility = View.GONE
-            }
         }
     }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
-    ): ShortCutViewHolder {
+    ): ShortCutSelectorViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = ShortCutItemBinding.inflate(layoutInflater, parent, false)
-        return ShortCutViewHolder(binding, onClick)
+        val binding = ShortCutSelectionItemBinding.inflate(layoutInflater, parent, false)
+        return ShortCutSelectorViewHolder(binding, onClick)
     }
 
     override fun onBindViewHolder(
-        holder: ShortCutViewHolder,
+        holder: ShortCutSelectorViewHolder,
         position: Int,
     ) {
         holder.bind(getItem(position))
-        holder.itemView.setOnLongClickListener {
-            onLongClick()
-            true
-        }
     }
 
     companion object {
@@ -59,12 +47,12 @@ class ShortCutAdapter(
                 override fun areItemsTheSame(
                     oldItem: ShortcutData,
                     newItem: ShortcutData,
-                ): Boolean = oldItem == newItem
+                ): Boolean = oldItem.title == newItem.title
 
                 override fun areContentsTheSame(
                     oldItem: ShortcutData,
                     newItem: ShortcutData,
-                ): Boolean = oldItem.title == newItem.title
+                ): Boolean = oldItem == newItem
             }
     }
 }

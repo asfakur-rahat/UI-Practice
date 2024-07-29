@@ -4,22 +4,15 @@ import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ar.ui_practice.R.*
 import com.ar.ui_practice.R.drawable.*
-import com.ar.ui_practice.adapter.ShortCutAdapter
+import com.ar.ui_practice.adapter.home.ShortCutAdapter
 import com.ar.ui_practice.bottomSheet.ShortCutSelector
-import com.ar.ui_practice.data.demo.DemoData.shortcutData
 import com.ar.ui_practice.data.model.ShortcutData
 import com.ar.ui_practice.databinding.FragmentHomeBinding
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment(layout.fragment_home) {
 
@@ -29,13 +22,6 @@ class HomeFragment : Fragment(layout.fragment_home) {
     private var isBalanceShow = false
     private var listener: HomeListener? = null
     private val viewModel: HomeViewModel by viewModels()
-
-//    private val initList = mutableListOf(
-//        ShortcutData(0, ic_add, "Shortcut"),
-//        ShortcutData(1, ic_add, "Shortcut"),
-//        ShortcutData(2, ic_add, "Shortcut"),
-//        ShortcutData(3, ic_add, "Shortcut")
-//    )
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -84,6 +70,7 @@ class HomeFragment : Fragment(layout.fragment_home) {
                 val shortCutSelector = ShortCutSelector(
                     shortcutData = shortcutList.toList(),
                     onClick = { selectedData ->
+                        isRemoveShow = false
                         viewModel.updateShortcut(data, selectedData)
                     }
                 )

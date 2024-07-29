@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import com.ar.ui_practice.R
-import com.ar.ui_practice.adapter.OperatorSelectorAdapter
+import com.ar.ui_practice.adapter.contacts.OperatorSelectorAdapter
 import com.ar.ui_practice.data.model.MobileOperator
 import com.ar.ui_practice.databinding.OperatorSelectionBottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment

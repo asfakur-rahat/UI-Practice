@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import com.ar.ui_practice.R
-import com.ar.ui_practice.adapter.ShortCutSelectorAdapter
+import com.ar.ui_practice.adapter.home.ShortCutSelectorAdapter
 import com.ar.ui_practice.data.model.ShortcutData
 import com.ar.ui_practice.databinding.ShortCutBottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment

@@ -1,4 +1,4 @@
-package com.ar.ui_practice.adapter
+package com.ar.ui_practice.adapter.contacts
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
