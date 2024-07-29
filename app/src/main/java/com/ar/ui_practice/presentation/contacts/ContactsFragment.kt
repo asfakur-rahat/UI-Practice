@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,6 +26,7 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts){
     private lateinit var adapter: AllContactsAdapter
     private lateinit var adapter2: AllContactsAdapter
     private val args: ContactsFragmentArgs by navArgs()
+    private val viewModel : ContactsViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = FragmentContactsBinding.bind(view)
@@ -36,7 +38,6 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts){
             findNavController().navigate(ContactsFragmentDirections.actionContactsFragmentToTopUpFragment(it.name, it.number, args.title))
         }
         initView()
-        loadContacts()
         initListener()
     }
 
@@ -49,7 +50,22 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts){
 
     private fun initView() {
         binding.actionBar.tvNavTitle.text = args.title
+        viewModel.loadContacts(requireContext())
+        initObserver()
         initTest()
+    }
+
+    private fun initObserver() {
+        viewModel.allContactList.observe(viewLifecycleOwner){
+            if(it != null){
+                setupRecyclerView(it)
+            }
+        }
+        viewModel.recentContactList.observe(viewLifecycleOwner){
+            if (it != null){
+                setUpRecent(it)
+            }
+        }
     }
 
     private fun initTest() {
@@ -71,48 +87,6 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts){
             }
 
         })
-    }
-
-
-    private fun loadContacts() {
-        val contacts = mutableListOf<Contacts>()
-        val recentContacts = mutableListOf<Contacts>()
-        val contactIdSet = mutableSetOf<String>()
-
-        val contentResolver = requireContext().contentResolver
-        val cursor = contentResolver.query(
-            ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
-            arrayOf(ContactsContract.CommonDataKinds.Phone.CONTACT_ID, ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME_PRIMARY, ContactsContract.CommonDataKinds.Phone.NUMBER),
-            null, null, null
-        )
-
-        cursor?.let {
-            val idIndex = it.getColumnIndex(ContactsContract.CommonDataKinds.Phone.CONTACT_ID)
-            val nameIndex = it.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME_PRIMARY)
-            val numberIndex = it.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)
-            var ok = false
-
-            while (it.moveToNext()) {
-                val id = it.getString(idIndex)
-                val name = it.getString(nameIndex)
-                val number = it.getString(numberIndex)
-                if(contactIdSet.add(id)){
-                    ok = true
-                    contacts.add(Contacts(name, number))
-                }
-                if(Random.nextInt(1,10) %2 ==0){
-                    if(ok && recentContacts.size <= 4){
-                        recentContacts.add(Contacts(name, number))
-                        ok = false
-                    }
-                }
-            }
-            it.close()
-        }
-        contacts.sortBy { it.name }
-        recentContacts.sortBy { it.name }
-        setupRecyclerView(contacts)
-        setUpRecent(recentContacts)
     }
 
     private fun setUpRecent(recentContacts: MutableList<Contacts>) {
