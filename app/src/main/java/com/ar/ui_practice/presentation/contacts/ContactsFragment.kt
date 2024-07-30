@@ -38,7 +38,7 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts){
     }
 
     private fun selectOperator(name: String = "Unknown", number: String) {
-        val operatorSelector = OperatorSelector({
+        val operatorSelector = OperatorSelector({ _, _ ->
             findNavController().navigate(ContactsFragmentDirections.actionContactsFragmentToTopUpFragment(name = name, number = number, title = args.title))
         }, operatorData = DemoData.operatorList)
 
