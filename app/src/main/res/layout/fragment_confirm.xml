@@ -235,4 +235,14 @@
         app:layout_constraintStart_toStartOf="@id/pin_container"
         app:layout_constraintEnd_toEndOf="@id/pin_container"/>
 
+
+    <com.ar.ui_practice.ui_component.SlideButtonView
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_35dp"
+        app:layout_constraintStart_toStartOf="@id/pin_container"
+        app:layout_constraintEnd_toEndOf="@id/pin_container"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/_30dp"
+        android:background="@drawable/slider_border"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
