@@ -237,6 +237,7 @@
 
 
     <com.ar.ui_practice.ui_component.SlideButtonView
+        android:id="@+id/slider"
         android:layout_width="0dp"
         android:layout_height="@dimen/_35dp"
         app:layout_constraintStart_toStartOf="@id/pin_container"

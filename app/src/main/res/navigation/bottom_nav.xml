@@ -54,5 +54,36 @@
         android:id="@+id/confirmFragment"
         android:name="com.ar.ui_practice.presentation.transaction.ConfirmFragment"
         android:label="fragment_confirm"
-        tools:layout="@layout/fragment_confirm" />
+        tools:layout="@layout/fragment_confirm" >
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="Unknown" />
+        <argument
+            android:name="number"
+            app:argType="string" />
+        <argument
+            android:name="amount"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_confirmFragment_to_successFragment"
+            app:destination="@id/successFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="com.ar.ui_practice.presentation.transaction.SuccessFragment"
+        android:label="fragment_success"
+        tools:layout="@layout/fragment_success" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="number"
+            app:argType="string" />
+        <argument
+            android:name="amount"
+            app:argType="string" />
+        <argument android:name="charge"
+            app:argType="string" />
+    </fragment>
 </navigation>
