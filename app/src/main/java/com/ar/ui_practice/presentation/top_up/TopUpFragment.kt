@@ -17,6 +17,7 @@ import com.ar.ui_practice.adapter.top_up.OfferViewPagerAdapter
 import com.ar.ui_practice.adapter.top_up.OffersAdapter
 import com.ar.ui_practice.adapter.top_up.SuggestedAmountAdapter
 import com.ar.ui_practice.data.demo.DemoData
+import com.ar.ui_practice.data.model.top_up.Offer
 import com.ar.ui_practice.databinding.FragmentTopUpBinding
 import com.ar.ui_practice.presentation.top_up.fragment.OfferListFragment
 import java.nio.file.WatchEvent
@@ -69,7 +70,7 @@ class TopUpFragment : Fragment(), OfferListFragment.OfferListener {
                 }else {
                     binding.btnConfirm.setImageResource(R.drawable.ic_action_bth_active)
                     binding.btnConfirm.setOnClickListener {
-                        findNavController().navigate(TopUpFragmentDirections.actionTopUpFragmentToConfirmFragment())
+                        navigateToConfirm(binding.etAmount.text.toString().trimMargin())
                     }
                 }
             }
@@ -83,8 +84,12 @@ class TopUpFragment : Fragment(), OfferListFragment.OfferListener {
 
     private fun initItems() {
         suggestionAdapter = SuggestedAmountAdapter {
-
+            navigateToConfirm(it)
         }
+    }
+
+    private fun navigateToConfirm(it: String) {
+        findNavController().navigate(TopUpFragmentDirections.actionTopUpFragmentToConfirmFragment(name = args.name, number = args.number, amount = it))
     }
 
     private fun initView() {
@@ -123,8 +128,8 @@ class TopUpFragment : Fragment(), OfferListFragment.OfferListener {
         _binding = null
     }
 
-    override fun onOfferClick() {
+    override fun onOfferClick(offer: Offer) {
         println("Inside TopUp")
-        findNavController().navigate(TopUpFragmentDirections.actionTopUpFragmentToConfirmFragment())
+        navigateToConfirm(offer.price)
     }
 }

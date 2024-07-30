@@ -23,7 +23,7 @@ class OfferListFragment : Fragment() {
     private var listener: OfferListener? = null
 
     interface OfferListener {
-        fun onOfferClick()
+        fun onOfferClick(offer: Offer)
     }
 
     companion object{
@@ -60,7 +60,7 @@ class OfferListFragment : Fragment() {
         binding.verticalRecyclerView.layoutManager = LinearLayoutManager(context)
         adapter = OfferListAdapter {
             println("clicked")
-            listener?.onOfferClick()
+            listener?.onOfferClick(it)
         }
         binding.verticalRecyclerView.adapter = adapter
         adapter.submitList(items)
