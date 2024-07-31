@@ -2,15 +2,17 @@ package com.ar.ui_practice.presentation.transaction
 
 
 import android.annotation.SuppressLint
+import android.content.ClipboardManager
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.ar.ui_practice.R
-import com.ar.ui_practice.databinding.FragmentConfirmBinding
 import com.ar.ui_practice.databinding.FragmentSuccessBinding
 import java.security.SecureRandom
 import java.text.SimpleDateFormat
@@ -38,11 +40,34 @@ class SuccessFragment : Fragment() {
         initListener()
     }
 
+    private var isBalanceHidden = false
+    @SuppressLint("SetTextI18n")
     private fun initListener() {
         binding.btnBackHome.setOnClickListener {
             findNavController().popBackStack(R.id.homeFragment, false)
         }
+        binding.copyTransactionId.setOnClickListener {
+            copyTextToClipboard(binding.tvTransactionId.text.toString())
+        }
+        binding.ivToogleBalance.setOnClickListener {
+            if (isBalanceHidden){
+                binding.currentBalance.text = (400000 - (args.amount.toInt() + if(args.charge == "Free") 0 else 10)).toString()
+                isBalanceHidden = false
+            }else{
+                binding.currentBalance.text = "****"
+                isBalanceHidden = true
+            }
+        }
     }
+
+    private fun copyTextToClipboard(text: String) {
+        val clipboard = context?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clip = android.content.ClipData.newPlainText("text", text)
+        clipboard.setPrimaryClip(clip)
+
+        Toast.makeText(requireContext(), "Text copied to clipboard", Toast.LENGTH_SHORT).show()
+    }
+
 
     @SuppressLint("SetTextI18n")
     private fun initView() {
@@ -53,7 +78,7 @@ class SuccessFragment : Fragment() {
         binding.totalAmount.text = (args.amount.toInt() + if(args.charge == "Free") 0 else 10).toString()
         binding.currentBalance.text = (400000 - (args.amount.toInt() + if(args.charge == "Free") 0 else 10)).toString()
         setDate()
-        binding.tvTransactionId.text = generateTransactionID(21)
+        binding.tvTransactionId.text = generateTransactionID()
     }
 
     private fun setDate() {
@@ -63,12 +88,12 @@ class SuccessFragment : Fragment() {
         binding.tvTimeDate.text =  simpleDateFormat.format(date)
     }
 
-    fun generateTransactionID(length: Int): String {
+    private fun generateTransactionID(): String {
         val charPool = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
         val random = SecureRandom()
         val stringBuilder = StringBuilder()
 
-        repeat(length) {
+        repeat(21) {
             val index = random.nextInt(charPool.length)
             stringBuilder.append(charPool[index])
         }

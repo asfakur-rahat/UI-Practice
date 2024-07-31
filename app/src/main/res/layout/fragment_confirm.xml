@@ -200,6 +200,7 @@
         app:layout_constraintTop_toBottomOf="@id/pin_tag"
         app:layout_constraintStart_toStartOf="@id/selected_amount"
         app:layout_constraintEnd_toEndOf="@id/selected_amount">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -217,6 +218,23 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:id="@+id/pin_placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            tools:visibility="invisible"
+            android:orientation="horizontal">
+            <include
+                layout="@layout/custom_pin_placeholder"/>
+            <include
+                layout="@layout/custom_pin_placeholder"/>
+            <include
+                layout="@layout/custom_pin_placeholder"/>
+            <include
+                layout="@layout/custom_pin_placeholder"/>
+        </LinearLayout>
+
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.textfield.TextInputEditText
@@ -240,6 +258,8 @@
         android:id="@+id/slider"
         android:layout_width="0dp"
         android:layout_height="@dimen/_35dp"
+        app:initialText="Swipe to confirm"
+        app:doneText="Done"
         app:layout_constraintStart_toStartOf="@id/pin_container"
         app:layout_constraintEnd_toEndOf="@id/pin_container"
         app:layout_constraintBottom_toBottomOf="parent"
