@@ -18,6 +18,7 @@ import com.ar.ui_practice.bottomSheet.OperatorSelector
 import com.ar.ui_practice.data.demo.DemoData
 import com.ar.ui_practice.data.model.Contacts
 import com.ar.ui_practice.databinding.FragmentContactsBinding
+import com.ar.ui_practice.utils.setVisibility
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -109,18 +110,17 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts){
     }
 
     private fun setUpRecent(recentContacts: MutableList<Contacts>) {
-        setVisibility(recentContacts, binding.recentContacts)
+        //setVisibility(recentContacts, binding.recentContacts)
+
+        binding.recentContacts.setVisibility(recentContacts.isNotEmpty())
         binding.rvRecentContactsList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.rvRecentContactsList.adapter = adapter2
         adapter2.submitList(recentContacts)
     }
 
-    private fun setVisibility(contacts: MutableList<Contacts>, view: View) {
-        view.visibility = if (contacts.isEmpty()) View.GONE else View.VISIBLE
-    }
-
     private fun setupRecyclerView(contacts: MutableList<Contacts>) {
-        setVisibility(contacts, binding.allContacts)
+        //setVisibility(contacts, binding.allContacts)
+        binding.allContacts.setVisibility(contacts.isNotEmpty())
         binding.rvAllContactsList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.rvAllContactsList.adapter = adapter
         adapter.submitList(contacts)

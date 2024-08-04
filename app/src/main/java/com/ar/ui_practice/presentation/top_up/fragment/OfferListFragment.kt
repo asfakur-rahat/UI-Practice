@@ -59,7 +59,7 @@ class OfferListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.verticalRecyclerView.layoutManager = LinearLayoutManager(context)
         adapter = OfferListAdapter {
-            println("clicked")
+            //println("clicked")
             listener?.onOfferClick(it)
         }
         binding.verticalRecyclerView.adapter = adapter

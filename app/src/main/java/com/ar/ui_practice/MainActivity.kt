@@ -21,6 +21,7 @@ import com.ar.ui_practice.R.string.*
 import com.ar.ui_practice.databinding.ActivityMainBinding
 import com.ar.ui_practice.presentation.home.HomeListener
 import com.ar.ui_practice.presentation.top_up.fragment.OfferListFragment
+import com.ar.ui_practice.utils.setVisibility
 
 class MainActivity : AppCompatActivity(), HomeListener {
     private lateinit var binding: ActivityMainBinding
@@ -52,13 +53,13 @@ class MainActivity : AppCompatActivity(), HomeListener {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.homeFragment ->{
-                    binding.bottomBar.root.visibility = View.VISIBLE
+                    binding.bottomBar.root.setVisibility(true)
                 }
                 R.id.servicesFragment->{
-                    binding.bottomBar.root.visibility = View.VISIBLE
+                    binding.bottomBar.root.setVisibility(true)
                 }
                 else ->{
-                    binding.bottomBar.root.visibility = View.GONE
+                    binding.bottomBar.root.setVisibility(false)
                 }
             }
         }

@@ -16,6 +16,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ar.ui_practice.adapter.transaction.PinAdapter
 import com.ar.ui_practice.databinding.FragmentConfirmBinding
+import com.ar.ui_practice.utils.setVisibility
 import com.google.android.material.internal.ViewUtils.hideKeyboard
 
 class ConfirmFragment : Fragment() {
@@ -51,11 +52,7 @@ class ConfirmFragment : Fragment() {
             @SuppressLint("RestrictedApi")
             override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 val len = s?.length ?: 0
-                if(len == 0){
-                    binding.pinPlaceholder.visibility = View.VISIBLE
-                }else{
-                    binding.pinPlaceholder.visibility = View.GONE
-                }
+                binding.pinPlaceholder.setVisibility(len == 0)
                 if (len <= 4){
                     val list = mutableListOf<Int>()
                     for(i in 0..<len){
@@ -79,7 +76,7 @@ class ConfirmFragment : Fragment() {
         adapter = PinAdapter()
         binding.rvPinPlaceholder.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL,false)
         binding.rvPinPlaceholder.adapter = adapter
-        println("User Enter something")
+        //println("User Enter something")
         adapter.submitList(list)
     }
 

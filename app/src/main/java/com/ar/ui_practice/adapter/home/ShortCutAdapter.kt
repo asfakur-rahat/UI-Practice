@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ar.ui_practice.data.model.ShortcutData
 import com.ar.ui_practice.databinding.ShortCutItemBinding
+import com.ar.ui_practice.utils.setVisibility
 
 class ShortCutAdapter(
     private val onClick: (ShortcutData) -> Unit,
@@ -25,9 +26,9 @@ class ShortCutAdapter(
                 onClick(data)
             }
             if(data.removeIcon){
-                binding.ivRemoveShortcut.visibility = View.VISIBLE
+                binding.ivRemoveShortcut.setVisibility(true)
             }else{
-                binding.ivRemoveShortcut.visibility = View.GONE
+                binding.ivRemoveShortcut.setVisibility(false)
             }
         }
     }

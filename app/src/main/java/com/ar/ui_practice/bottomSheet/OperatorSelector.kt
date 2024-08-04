@@ -8,6 +8,7 @@ import com.ar.ui_practice.R
 import com.ar.ui_practice.adapter.contacts.OperatorSelectorAdapter
 import com.ar.ui_practice.data.model.MobileOperator
 import com.ar.ui_practice.databinding.OperatorSelectionBottomSheetBinding
+import com.ar.ui_practice.utils.setVisibility
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -29,16 +30,16 @@ class OperatorSelector (
     }
 
     private fun initItems(){
-        binding.prepaid.visibility = View.GONE
-        binding.postpaid.visibility = View.GONE
+        binding.prepaid.setVisibility(false)
+        binding.postpaid.setVisibility(false)
         adapter = OperatorSelectorAdapter{ operator ->
             selectedOperator = operator.title
             if(operator.title != "Skitto"){
-                binding.prepaid.visibility = View.VISIBLE
-                binding.postpaid.visibility = View.VISIBLE
+                binding.prepaid.setVisibility(true)
+                binding.postpaid.setVisibility(true)
             }else{
-                binding.prepaid.visibility = View.GONE
-                binding.postpaid.visibility = View.GONE
+                binding.prepaid.setVisibility(false)
+                binding.postpaid.setVisibility(false)
                 onClick(operator.title, null)
                 dismiss()
             }
