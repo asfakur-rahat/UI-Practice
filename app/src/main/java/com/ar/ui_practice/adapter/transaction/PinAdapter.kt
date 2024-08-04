@@ -30,5 +30,4 @@ class PinAdapter: ListAdapter<Int, PinAdapter.PinViewHolder>(DiffChecker) {
             override fun areContentsTheSame(oldItem: Int, newItem: Int): Boolean = newItem == oldItem
         }
     }
-
 }

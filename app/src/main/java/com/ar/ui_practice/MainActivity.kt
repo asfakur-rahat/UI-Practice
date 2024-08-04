@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updateLayoutParams
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -39,17 +40,24 @@ class MainActivity : AppCompatActivity(), HomeListener {
             }
             insets
         }
-        if(!allPermissionsGranted()){
-            requestPermissions()
-        }
+        checkPermission()
         initListener()
+        setUpNavigation()
+    }
 
+    private fun setUpNavigation() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment
         val navController = navHostFragment.navController
         binding.bottomBar.bottomNavigationView.setupWithNavController(navController)
+        setNavIcons()
+        setupNavController(navController)
+    }
 
+    private fun setNavIcons() {
         binding.bottomBar.bottomNavigationView.menu.findItem(R.id.chat).setIcon(icon_chats_no_notification)
+    }
 
+    private fun setupNavController(navController: NavController) {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.homeFragment ->{
@@ -62,6 +70,13 @@ class MainActivity : AppCompatActivity(), HomeListener {
                     binding.bottomBar.root.setVisibility(false)
                 }
             }
+        }
+    }
+
+
+    private fun checkPermission() {
+        if(!allPermissionsGranted()){
+            requestPermissions()
         }
     }
 
