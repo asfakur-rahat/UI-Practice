@@ -51,6 +51,11 @@ class ConfirmFragment : Fragment() {
             @SuppressLint("RestrictedApi")
             override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 val len = s?.length ?: 0
+                if(len == 0){
+                    binding.pinPlaceholder.visibility = View.VISIBLE
+                }else{
+                    binding.pinPlaceholder.visibility = View.GONE
+                }
                 if (len <= 4){
                     val list = mutableListOf<Int>()
                     for(i in 0..<len){
@@ -83,6 +88,10 @@ class ConfirmFragment : Fragment() {
         binding.contactName.text = args.name
         binding.contactNumber.text = args.number
         binding.tvAmount.text = args.amount
+
+
+        //binding.slider.setInitialText("Do What Ever You Want")
+        //binding.slider.setDoneText("EKSER MOJA")
     }
 
     private fun initListener() {
@@ -90,10 +99,11 @@ class ConfirmFragment : Fragment() {
             findNavController().popBackStack()
         }
 
-        binding.slider.onSlideCompleteListener = {
+        binding.slider.onSlideDoneListener ={
             if(binding.etPIN.text.toString().trimMargin() == "1111"){
                 gotoSuccess()
             }else{
+                binding.slider.resetSlider()
                 gotoFailure()
             }
         }
@@ -106,8 +116,6 @@ class ConfirmFragment : Fragment() {
 
     private fun gotoFailure() {
         Toast.makeText(requireContext(), "Please Enter the correct PIN", Toast.LENGTH_SHORT).show()
-        binding.etPIN.setText("")
-        setUpPIN(mutableListOf())
     }
 
     private fun gotoSuccess() {

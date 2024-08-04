@@ -1,5 +1,6 @@
 package com.ar.ui_practice.bottomSheet
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
@@ -7,20 +8,23 @@ import com.ar.ui_practice.R
 import com.ar.ui_practice.adapter.contacts.OperatorSelectorAdapter
 import com.ar.ui_practice.data.model.MobileOperator
 import com.ar.ui_practice.databinding.OperatorSelectionBottomSheetBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class OperatorSelector (
+    context: Context,
     private val onClick: (String, String?) -> Unit,
     private val operatorData: List<MobileOperator>,
-) : BottomSheetDialogFragment(R.layout.operator_selection_bottom_sheet) {
+) : BottomSheetDialog(context) {
     private lateinit var binding: OperatorSelectionBottomSheetBinding
     private lateinit var adapter: OperatorSelectorAdapter
 
     private var selectedOperator: String? = null
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding = OperatorSelectionBottomSheetBinding.bind(view)
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = OperatorSelectionBottomSheetBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         initItems()
     }
 
@@ -39,7 +43,7 @@ class OperatorSelector (
                 dismiss()
             }
         }
-        binding.rvOperators.layoutManager = GridLayoutManager(requireContext(), 4, GridLayoutManager.VERTICAL, false)
+        binding.rvOperators.layoutManager = GridLayoutManager(context, 4, GridLayoutManager.VERTICAL, false)
         binding.rvOperators.adapter = adapter
         adapter.submitList(operatorData)
 

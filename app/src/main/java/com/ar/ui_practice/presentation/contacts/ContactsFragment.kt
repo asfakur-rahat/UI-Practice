@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import androidx.core.widget.doAfterTextChanged
+import androidx.core.widget.doBeforeTextChanged
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -15,6 +18,11 @@ import com.ar.ui_practice.bottomSheet.OperatorSelector
 import com.ar.ui_practice.data.demo.DemoData
 import com.ar.ui_practice.data.model.Contacts
 import com.ar.ui_practice.databinding.FragmentContactsBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class ContactsFragment : Fragment(R.layout.fragment_contacts){
 
@@ -38,11 +46,11 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts){
     }
 
     private fun selectOperator(name: String = "Unknown", number: String) {
-        val operatorSelector = OperatorSelector({ _, _ ->
+        val operatorSelector = OperatorSelector(requireContext(),{ _, _ ->
             findNavController().navigate(ContactsFragmentDirections.actionContactsFragmentToTopUpFragment(name = name, number = number, title = args.title))
         }, operatorData = DemoData.operatorList)
 
-        operatorSelector.show(requireActivity().supportFragmentManager, "OperatorSelector")
+        operatorSelector.show()
     }
 
     private fun initListener() {
@@ -55,7 +63,7 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts){
         binding.actionBar.tvNavTitle.text = args.title
         viewModel.loadContacts(requireContext())
         initObserver()
-        initTest()
+        doOnTextChange()
     }
 
     private fun initObserver() {
@@ -71,46 +79,48 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts){
         }
     }
 
-    private fun initTest() {
-        binding.etContact.addTextChangedListener(object : TextWatcher{
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
-            }
+    private var debounceJob: Job? = null
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if(s.isNullOrEmpty()){
+    private fun doOnTextChange(){
+        binding.etContact.doAfterTextChanged { text ->
+            debounceJob?.cancel()
+            debounceJob = CoroutineScope(Dispatchers.Main).launch {
+                delay(300)
+                println(text)
+                if (text.isNullOrEmpty()) {
                     binding.confirmBtn.setImageResource(R.drawable.ic_action_btn)
-                    binding.confirmBtn.setOnClickListener {
-
-                    }
-                }else{
-                    binding.confirmBtn.setImageResource(R.drawable.ic_action_bth_active)
-                    if (s.length == 11){
+                    binding.confirmBtn.setOnClickListener { /* Handle Click */ }
+                    viewModel.resetContacts()
+                } else {
+                    viewModel.filterContacts(text.toString())
+                    if (text.length == 11) {
+                        binding.confirmBtn.setImageResource(R.drawable.ic_action_bth_active)
                         binding.confirmBtn.setOnClickListener {
-                            selectOperator(number = s.toString())
+                            selectOperator(number = text.toString())
                         }
-                    }else{
-                        binding.confirmBtn.setOnClickListener {
-
-                        }
+                    } else {
+                        binding.confirmBtn.setImageResource(R.drawable.ic_action_btn)
+                        binding.confirmBtn.setOnClickListener { /* Handle Click */ }
                     }
                 }
             }
-
-            override fun afterTextChanged(s: Editable?) {
-
-            }
-
-        })
+        }
     }
 
     private fun setUpRecent(recentContacts: MutableList<Contacts>) {
+        setVisibility(recentContacts, binding.recentContacts)
         binding.rvRecentContactsList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.rvRecentContactsList.adapter = adapter2
         adapter2.submitList(recentContacts)
     }
 
+    private fun setVisibility(contacts: MutableList<Contacts>, view: View) {
+        view.visibility = if (contacts.isEmpty()) View.GONE else View.VISIBLE
+    }
+
     private fun setupRecyclerView(contacts: MutableList<Contacts>) {
+        setVisibility(contacts, binding.allContacts)
         binding.rvAllContactsList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.rvAllContactsList.adapter = adapter
         adapter.submitList(contacts)
