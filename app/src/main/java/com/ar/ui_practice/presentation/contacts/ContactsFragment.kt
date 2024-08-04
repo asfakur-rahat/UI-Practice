@@ -48,10 +48,13 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts){
 
     private fun selectOperator(name: String = "Unknown", number: String) {
         val operatorSelector = OperatorSelector(requireContext(),{ _, _ ->
-            findNavController().navigate(ContactsFragmentDirections.actionContactsFragmentToTopUpFragment(name = name, number = number, title = args.title))
+            gotoTopUp(name,number,args.title)
         }, operatorData = DemoData.operatorList)
-
         operatorSelector.show()
+    }
+
+    private fun gotoTopUp(name: String, number: String, title: String) {
+        findNavController().navigate(ContactsFragmentDirections.actionContactsFragmentToTopUpFragment(name = name, number = number, title = title))
     }
 
     private fun initListener() {
@@ -62,6 +65,7 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts){
 
     private fun initView() {
         binding.actionBar.tvNavTitle.text = args.title
+        binding.confirmBtn.isEnabled = false
         viewModel.loadContacts(requireContext())
         initObserver()
         doOnTextChange()
@@ -90,19 +94,19 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts){
                 delay(300)
                 println(text)
                 if (text.isNullOrEmpty()) {
-                    binding.confirmBtn.setImageResource(R.drawable.ic_action_btn)
-                    binding.confirmBtn.setOnClickListener { /* Handle Click */ }
+                    binding.confirmBtn.isEnabled = false
+                    //binding.confirmBtn.setOnClickListener { /* Handle Click */ }
                     viewModel.resetContacts()
                 } else {
                     viewModel.filterContacts(text.toString())
                     if (text.length == 11) {
-                        binding.confirmBtn.setImageResource(R.drawable.ic_action_bth_active)
+                        binding.confirmBtn.isEnabled = true
                         binding.confirmBtn.setOnClickListener {
                             selectOperator(number = text.toString())
                         }
                     } else {
-                        binding.confirmBtn.setImageResource(R.drawable.ic_action_btn)
-                        binding.confirmBtn.setOnClickListener { /* Handle Click */ }
+                        binding.confirmBtn.isEnabled = false
+                        //binding.confirmBtn.setOnClickListener { /* Handle Click */ }
                     }
                 }
             }
@@ -110,8 +114,6 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts){
     }
 
     private fun setUpRecent(recentContacts: MutableList<Contacts>) {
-        //setVisibility(recentContacts, binding.recentContacts)
-
         binding.recentContacts.setVisibility(recentContacts.isNotEmpty())
         binding.rvRecentContactsList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.rvRecentContactsList.adapter = adapter2
@@ -119,7 +121,6 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts){
     }
 
     private fun setupRecyclerView(contacts: MutableList<Contacts>) {
-        //setVisibility(contacts, binding.allContacts)
         binding.allContacts.setVisibility(contacts.isNotEmpty())
         binding.rvAllContactsList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.rvAllContactsList.adapter = adapter

@@ -57,9 +57,12 @@ class OfferListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
+    }
+
+    private fun initView() {
         binding.verticalRecyclerView.layoutManager = LinearLayoutManager(context)
         adapter = OfferListAdapter {
-            //println("clicked")
             listener?.onOfferClick(it)
         }
         binding.verticalRecyclerView.adapter = adapter

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -29,7 +30,6 @@ class TopUpFragment : Fragment(), OfferListFragment.OfferListener {
     private lateinit var adapter: OffersAdapter
     private lateinit var suggestionAdapter: SuggestedAmountAdapter
     private lateinit var viewPager: ViewPager2
-
 
     private val offers = DemoData.OffersList
 
@@ -56,30 +56,16 @@ class TopUpFragment : Fragment(), OfferListFragment.OfferListener {
         binding.actionBar.ivNavIcon.setOnClickListener {
             findNavController().popBackStack()
         }
-        binding.etAmount.addTextChangedListener(object : TextWatcher{
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if(s.isNullOrEmpty()){
-                    binding.btnConfirm.setImageResource(R.drawable.ic_action_btn)
-                    binding.btnConfirm.setOnClickListener {
-
-                    }
-                }else {
-                    binding.btnConfirm.setImageResource(R.drawable.ic_action_bth_active)
-                    binding.btnConfirm.setOnClickListener {
-                        navigateToConfirm(binding.etAmount.text.toString().trimMargin())
-                    }
+        binding.etAmount.doOnTextChanged { s, _, _, _ ->
+            if(s.isNullOrEmpty()){
+                binding.btnConfirm.isEnabled = false
+            }else {
+                binding.btnConfirm.isEnabled = true
+                binding.btnConfirm.setOnClickListener {
+                    navigateToConfirm(binding.etAmount.text.toString().trimMargin())
                 }
             }
-
-            override fun afterTextChanged(s: Editable?) {
-
-            }
-
-        })
+        }
     }
 
     private fun initItems() {
@@ -121,6 +107,7 @@ class TopUpFragment : Fragment(), OfferListFragment.OfferListener {
             adapter = suggestionAdapter
         }
         suggestionAdapter.submitList(listOf("69","99","199","299","299","369","489","1000"))
+        binding.btnConfirm.isEnabled = false
     }
 
     override fun onDestroyView() {
@@ -129,7 +116,6 @@ class TopUpFragment : Fragment(), OfferListFragment.OfferListener {
     }
 
     override fun onOfferClick(offer: Offer) {
-        println("Inside TopUp")
         navigateToConfirm(offer.price)
     }
 }

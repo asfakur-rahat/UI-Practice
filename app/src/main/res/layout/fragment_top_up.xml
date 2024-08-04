@@ -188,7 +188,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:hint="Enter amount"
+                    android:hint="@string/enter_amount"
                     android:inputType="numberDecimal"
                     android:padding="12dp"
                     android:textAlignment="textStart" />
@@ -198,7 +198,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/ic_action_btn" />
+                    app:srcCompat="@drawable/button_drawable"/>
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
