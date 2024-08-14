@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ar.ui_practice.data.model.top_up.Offer
 import com.ar.ui_practice.databinding.ItemOfferBinding
 import com.ar.ui_practice.databinding.ItemOptionsBinding
+import com.ar.ui_practice.utils.setVisibility
 
 class OfferListAdapter(
     private val onClick: (Offer) -> Unit
@@ -32,13 +33,13 @@ class OfferListAdapter(
 
             when(size){
                 1 -> {
-                    binding.slot2.visibility = View.GONE
-                    binding.slot3.visibility = View.GONE
+                    binding.slot2.setVisibility(false)
+                    binding.slot3.setVisibility(false)
                     binding.icon1.setImageResource(item.bundle[0].icon)
                     binding.tvSlot1.text = item.bundle[0].amount
                 }
                 2 -> {
-                    binding.slot3.visibility = View.GONE
+                    binding.slot3.setVisibility(false)
 
                     binding.icon1.setImageResource(item.bundle[0].icon)
                     binding.tvSlot1.text = item.bundle[0].amount

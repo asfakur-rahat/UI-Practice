@@ -54,4 +54,5 @@
     <string name="mobile_number">Mobile Number</string>
     <string name="charge">Charge</string>
     <string name="receiver">Receiver</string>
+    <string name="enter_amount">Enter amount</string>
 </resources>

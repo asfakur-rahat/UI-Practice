@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ar.ui_practice.R
 import com.ar.ui_practice.adapter.service.ServiceCategoryAdapter
 import com.ar.ui_practice.data.demo.DemoData
+import com.ar.ui_practice.data.model.Service
 import com.ar.ui_practice.databinding.FragmentServicesBinding
+import com.ar.ui_practice.utils.setVisibility
 
 class ServicesFragment : Fragment(R.layout.fragment_services) {
 
@@ -25,14 +27,17 @@ class ServicesFragment : Fragment(R.layout.fragment_services) {
 
     private fun initAdapter() {
         adaptar = ServiceCategoryAdapter{ service ->
-            findNavController().navigate(ServicesFragmentDirections.actionServicesFragmentToContactsFragment(service.title))
+            gotoContact(service)
         }
+    }
+
+    private fun gotoContact(service: Service) {
+        findNavController().navigate(ServicesFragmentDirections.actionServicesFragmentToContactsFragment(service.title))
     }
 
     private fun initView() {
         binding.actionBar.tvNavTitle.text = "Services"
-        binding.actionBar.ivNavIcon.visibility = View.GONE
-
+        binding.actionBar.ivNavIcon.setVisibility(false)
         binding.rvCategory.adapter = adaptar
         binding.rvCategory.apply {
             setHasFixedSize(true)

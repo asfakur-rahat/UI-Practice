@@ -64,7 +64,6 @@ class SuccessFragment : Fragment() {
         val clipboard = context?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         val clip = android.content.ClipData.newPlainText("text", text)
         clipboard.setPrimaryClip(clip)
-
         Toast.makeText(requireContext(), "Text copied to clipboard", Toast.LENGTH_SHORT).show()
     }
 

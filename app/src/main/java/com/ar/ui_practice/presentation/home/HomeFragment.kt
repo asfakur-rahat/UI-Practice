@@ -2,18 +2,18 @@ package com.ar.ui_practice.presentation.home
 
 import android.content.Context
 import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.Fragment
+import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ar.ui_practice.R.drawable.ic_hide_balance
-import com.ar.ui_practice.R.drawable.ic_show_balance
-import com.ar.ui_practice.R.layout
+import com.ar.ui_practice.R.*
+import com.ar.ui_practice.R.drawable.*
 import com.ar.ui_practice.adapter.home.ShortCutAdapter
 import com.ar.ui_practice.bottomSheet.ShortCutSelector
 import com.ar.ui_practice.data.model.ShortcutData
 import com.ar.ui_practice.databinding.FragmentHomeBinding
+import com.ar.ui_practice.utils.setVisibility
 import com.ar.ui_practice.dialog.PromotionDialog
 import com.ar.ui_practice.ui_component.carousel.model.CarouselItem
 
@@ -38,7 +38,7 @@ class HomeFragment : Fragment(layout.fragment_home) {
         listener = null
     }
 
-    private var initList = mutableListOf<ShortcutData>()
+    private var initList  = mutableListOf<ShortcutData>()
     private var shortcutList = mutableListOf<ShortcutData>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -57,11 +57,11 @@ class HomeFragment : Fragment(layout.fragment_home) {
     }
 
     private fun initObserver() {
-        viewModel.shorCutList.observe(viewLifecycleOwner) {
+        viewModel.shorCutList.observe(viewLifecycleOwner){
             initList = it
             initShortcut(it)
         }
-        viewModel.shortCutSelectionList.observe(viewLifecycleOwner) {
+        viewModel.shortCutSelectionList.observe(viewLifecycleOwner){
             shortcutList = it
         }
     }
@@ -90,8 +90,7 @@ class HomeFragment : Fragment(layout.fragment_home) {
 
 
         binding.profile.rvShortcuts.apply {
-            layoutManager =
-                GridLayoutManager(requireContext(), 4, LinearLayoutManager.VERTICAL, false)
+            layoutManager = GridLayoutManager(requireContext(), 4, LinearLayoutManager.VERTICAL, false)
             isNestedScrollingEnabled = false
         }
         binding.profile.rvShortcuts.adapter = adapter
@@ -103,13 +102,14 @@ class HomeFragment : Fragment(layout.fragment_home) {
         binding.profile.tvName.text = "Anonymous User"
         binding.profile.tvUserTag.visibility = View.VISIBLE
         binding.profile.tvUserTag.text = "Basic"
-        binding.profile.llRegistration.visibility = View.VISIBLE
-        binding.profile.llExplore.visibility = View.VISIBLE
-        binding.profile.tvRegistration.visibility = View.VISIBLE
-        binding.profile.btnRegisterNow.visibility = View.VISIBLE
-        binding.profile.tvExplore.visibility = View.VISIBLE
-        binding.profile.btnExplore.visibility = View.VISIBLE
-        binding.profile.llTransactions.visibility = View.GONE
+        binding.profile.tvUserTag.setVisibility(true)
+        binding.profile.llRegistration.setVisibility(true)
+        binding.profile.llExplore.setVisibility(true)
+        binding.profile.tvRegistration.setVisibility(true)
+        binding.profile.btnRegisterNow.setVisibility(true)
+        binding.profile.tvExplore.setVisibility(true)
+        binding.profile.btnExplore.setVisibility(true)
+        binding.profile.llTransactions.setVisibility(false)
         initBasicItems()
         initListener()
     }
@@ -131,10 +131,10 @@ class HomeFragment : Fragment(layout.fragment_home) {
 
     private fun initListener() {
         binding.root.setOnClickListener {
-            binding.basicPopup.root.visibility = View.VISIBLE
+            binding.basicPopup.root.setVisibility(true)
         }
         binding.basicPopup.closeDialog.setOnClickListener {
-            binding.basicPopup.root.visibility = View.GONE
+            binding.basicPopup.root.setVisibility(false)
         }
         binding.basicPopup.btnRegisterNow1.setOnClickListener {
             binding.basicPopup.root.performClick()
@@ -156,14 +156,14 @@ class HomeFragment : Fragment(layout.fragment_home) {
     private fun initInfo() {
         binding.profile.tvBalance.text = "4,00,000"
         binding.profile.tvName.text = "Maruf Ahmed"
-        binding.profile.llRegistration.visibility = View.GONE
-        binding.profile.llExplore.visibility = View.GONE
-        binding.profile.tvRegistration.visibility = View.GONE
-        binding.profile.btnRegisterNow.visibility = View.GONE
-        binding.profile.tvExplore.visibility = View.GONE
-        binding.profile.btnExplore.visibility = View.GONE
-        binding.profile.tvUserTag.visibility = View.GONE
-        binding.profile.llTransactions.visibility = View.VISIBLE
+        binding.profile.llRegistration.setVisibility(false)
+        binding.profile.llExplore.setVisibility(false)
+        binding.profile.tvRegistration.setVisibility(false)
+        binding.profile.btnRegisterNow.setVisibility(false)
+        binding.profile.tvExplore.setVisibility(false)
+        binding.profile.btnExplore.setVisibility(false)
+        binding.profile.tvUserTag.setVisibility(false)
+        binding.profile.llTransactions.setVisibility(true)
         //initItems()
         initObserver()
         initMainListener()

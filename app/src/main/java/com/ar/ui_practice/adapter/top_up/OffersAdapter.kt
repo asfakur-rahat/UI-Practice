@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ar.ui_practice.R
 import com.ar.ui_practice.R.color.activeColor
 import com.ar.ui_practice.databinding.ItemOptionsBinding
+import com.ar.ui_practice.utils.setVisibility
 
 class OffersAdapter(
     private val onClick: (Int) -> Unit
@@ -36,10 +37,10 @@ class OffersAdapter(
             if (isSelected){
                 binding.apply {
                     optionName.setTextColor(Color.parseColor("#3DAE72"))
-                    underline.visibility = View.VISIBLE
+                    underline.setVisibility(true)
                 }
             }else{
-                binding.underline.visibility = View.GONE
+                binding.underline.setVisibility(false)
                 binding.apply {
                     optionName.setTextColor(Color.parseColor("#B3000000"))
                 }

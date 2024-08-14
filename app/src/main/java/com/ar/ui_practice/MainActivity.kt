@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updateLayoutParams
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -21,6 +22,7 @@ import com.ar.ui_practice.R.string.*
 import com.ar.ui_practice.databinding.ActivityMainBinding
 import com.ar.ui_practice.presentation.home.HomeListener
 import com.ar.ui_practice.presentation.top_up.fragment.OfferListFragment
+import com.ar.ui_practice.utils.setVisibility
 
 class MainActivity : AppCompatActivity(), HomeListener {
     private lateinit var binding: ActivityMainBinding
@@ -38,29 +40,43 @@ class MainActivity : AppCompatActivity(), HomeListener {
             }
             insets
         }
-        if(!allPermissionsGranted()){
-            requestPermissions()
-        }
+        checkPermission()
         initListener()
+        setUpNavigation()
+    }
 
+    private fun setUpNavigation() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment
         val navController = navHostFragment.navController
         binding.bottomBar.bottomNavigationView.setupWithNavController(navController)
+        setNavIcons()
+        setupNavController(navController)
+    }
 
+    private fun setNavIcons() {
         binding.bottomBar.bottomNavigationView.menu.findItem(R.id.chat).setIcon(icon_chats_no_notification)
+    }
 
+    private fun setupNavController(navController: NavController) {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.homeFragment ->{
-                    binding.bottomBar.root.visibility = View.VISIBLE
+                    binding.bottomBar.root.setVisibility(true)
                 }
                 R.id.servicesFragment->{
-                    binding.bottomBar.root.visibility = View.VISIBLE
+                    binding.bottomBar.root.setVisibility(true)
                 }
                 else ->{
-                    binding.bottomBar.root.visibility = View.GONE
+                    binding.bottomBar.root.setVisibility(false)
                 }
             }
+        }
+    }
+
+
+    private fun checkPermission() {
+        if(!allPermissionsGranted()){
+            requestPermissions()
         }
     }
 

@@ -11,11 +11,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.core.widget.doOnTextChanged
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ar.ui_practice.adapter.transaction.PinAdapter
 import com.ar.ui_practice.databinding.FragmentConfirmBinding
+import com.ar.ui_practice.utils.setVisibility
 import com.google.android.material.internal.ViewUtils.hideKeyboard
 
 class ConfirmFragment : Fragment() {
@@ -43,43 +45,29 @@ class ConfirmFragment : Fragment() {
         initWatcher()
     }
 
+    @SuppressLint("RestrictedApi")
     private fun initWatcher() {
-        binding.etPIN.addTextChangedListener(object : TextWatcher{
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-            }
-            @SuppressLint("RestrictedApi")
-            override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                val len = s?.length ?: 0
-                if(len == 0){
-                    binding.pinPlaceholder.visibility = View.VISIBLE
-                }else{
-                    binding.pinPlaceholder.visibility = View.GONE
+        binding.etPIN.doOnTextChanged { s, _, _, _ ->
+            val len = s?.length ?: 0
+            binding.pinPlaceholder.setVisibility(len == 0)
+            if (len <= 4){
+                val list = mutableListOf<Int>()
+                for(i in 0..<len){
+                    list.add(i)
                 }
-                if (len <= 4){
-                    val list = mutableListOf<Int>()
-                    for(i in 0..<len){
-                        list.add(i)
-                    }
-                    setUpPIN(list)
-
-                    if (len == 4){
-                        hideKeyboard(binding.root)
-                        binding.etPIN.clearFocus()
-                    }
+                setUpPIN(list)
+                if (len == 4){
+                    hideKeyboard(binding.root)
+                    binding.etPIN.clearFocus()
                 }
             }
-            override fun afterTextChanged(p0: Editable?) {
-
-            }
-        })
+        }
     }
 
     private fun setUpPIN(list: MutableList<Int>) {
         adapter = PinAdapter()
         binding.rvPinPlaceholder.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL,false)
         binding.rvPinPlaceholder.adapter = adapter
-        println("User Enter something")
         adapter.submitList(list)
     }
 
@@ -88,17 +76,12 @@ class ConfirmFragment : Fragment() {
         binding.contactName.text = args.name
         binding.contactNumber.text = args.number
         binding.tvAmount.text = args.amount
-
-
-        //binding.slider.setInitialText("Do What Ever You Want")
-        //binding.slider.setDoneText("EKSER MOJA")
     }
 
     private fun initListener() {
         binding.actionBar.ivNavIcon.setOnClickListener { 
             findNavController().popBackStack()
         }
-
         binding.slider.onSlideDoneListener ={
             if(binding.etPIN.text.toString().trimMargin() == "1111"){
                 gotoSuccess()
@@ -106,11 +89,6 @@ class ConfirmFragment : Fragment() {
                 binding.slider.resetSlider()
                 gotoFailure()
             }
-        }
-
-        binding.etPIN.setOnClickListener {
-            binding.etPIN.setText("")
-            setUpPIN(mutableListOf())
         }
     }
 
@@ -121,7 +99,6 @@ class ConfirmFragment : Fragment() {
     private fun gotoSuccess() {
         findNavController().navigate(ConfirmFragmentDirections.actionConfirmFragmentToSuccessFragment(name = args.name, number = args.number, amount = args.amount, charge = binding.tvCharge.text.toString()))
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()
