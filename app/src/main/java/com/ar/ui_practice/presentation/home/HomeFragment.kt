@@ -11,6 +11,7 @@ import com.ar.ui_practice.R.*
 import com.ar.ui_practice.R.drawable.*
 import com.ar.ui_practice.adapter.home.ShortCutAdapter
 import com.ar.ui_practice.bottomSheet.ShortCutSelector
+import com.ar.ui_practice.data.demo.DemoData
 import com.ar.ui_practice.data.model.ShortcutData
 import com.ar.ui_practice.databinding.FragmentHomeBinding
 import com.ar.ui_practice.utils.setVisibility
@@ -175,30 +176,8 @@ class HomeFragment : Fragment(layout.fragment_home) {
         val dialog = PromotionDialog(
             requireContext(), this, onClick = {
 
-            }, items = listOf(
-                CarouselItem(
-                    imageUrl = "https://ecdn.dhakatribune.net/contents/cache/images/1100x618x1/uploads/dten/2022/06/20/free-talk-time-sylhet.jpeg",
-                    caption = "Celebrating Bangladesh's 50th Independence Day with Pride \uD83C\uDDE7\uD83C\uDDE9",
-                    subtitle = "This vibrant graphic marks the 50th anniversary of Bangladesh's independence. The design features bold typography and the iconic red and green colors of the national flag, symbolizing the nation's enduring spirit and resilience. The message, '50 Years of Freedom,' highlights the journey of progress and unity since 1971."
-                ),
-                CarouselItem(
-                    imageUrl = "https://coorzjdvba.cloudimg.io/markedium.com/wp-content/uploads/2021/11/Copy-of-Add-a-subheading-1080-x-1350-px51.png",
-                    caption = "Exclusive GP Star Discount on Truck Hiring with Truck Lagbe \uD83D\uDE9A",
-                    subtitle = "This promotional image showcases a special offer for GP Star customers, providing discounts on truck hiring services through Truck Lagbe. The visual highlights the convenience and affordability of transporting goods across the country, featuring the Truck Lagbe logo alongside the GP Star branding."
-                ),
-                CarouselItem(
-                    imageUrl = "https://blog.trucklagbe.com/hubfs/GP%20Star%20Discount%20on%20truck%20hiring%20from%20Truck%20Lagbe.jpg",
-                    caption = "Stay Connected with GP's Exclusive Mobile Plans \uD83D\uDCF1",
-                    subtitle = "This image highlights Grameenphone's latest mobile plans, designed to keep users connected with high-speed data and affordable rates. The sleek and modern design features a smartphone alongside the Grameenphone logo, symbolizing the brand's commitment to providing cutting-edge technology and exceptional service."
-                ),
-                CarouselItem(
-                    imageUrl = "https://blog.trucklagbe.com/hubfs/GP%20Star%20Discount%20on%20truck%20hiring%20from%20Truck%20Lagbe.jpg",
-                    caption = "Stay Connected with GP's Exclusive Mobile Plans \uD83D\uDCF1",
-                    subtitle = "This image highlights Grameenphone's latest mobile plans, designed to keep users connected with high-speed data and affordable rates. The sleek and modern design features a smartphone alongside the Grameenphone logo, symbolizing the brand's commitment to providing cutting-edge technology and exceptional service."
-                ),
-            )
+            }, items = DemoData.promotionList
         )
-
         dialog.show()
     }
 
