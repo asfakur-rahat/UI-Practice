@@ -4,16 +4,19 @@ import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ar.ui_practice.R.*
 import com.ar.ui_practice.R.drawable.*
-import com.ar.ui_practice.adapter.ShortCutAdapter
+import com.ar.ui_practice.adapter.home.ShortCutAdapter
 import com.ar.ui_practice.bottomSheet.ShortCutSelector
-import com.ar.ui_practice.data.demo.DemoData.shortcutData
+import com.ar.ui_practice.data.demo.DemoData
 import com.ar.ui_practice.data.model.ShortcutData
 import com.ar.ui_practice.databinding.FragmentHomeBinding
+import com.ar.ui_practice.utils.setVisibility
+import com.ar.ui_practice.dialog.PromotionDialog
+import com.ar.ui_practice.ui_component.carousel.model.CarouselItem
 
 class HomeFragment : Fragment(layout.fragment_home) {
 
@@ -21,19 +24,12 @@ class HomeFragment : Fragment(layout.fragment_home) {
     private lateinit var adapter: ShortCutAdapter
     private var isRemoveShow = false
     private var isBalanceShow = false
-    private var listener : HomeListener? = null
-
-    private val initList =
-        mutableListOf(
-            ShortcutData(0, ic_add, "Shortcut"),
-            ShortcutData(1, ic_add, "Shortcut"),
-            ShortcutData(2, ic_add, "Shortcut"),
-            ShortcutData(3, ic_add, "Shortcut"),
-        )
+    private var listener: HomeListener? = null
+    private val viewModel: HomeViewModel by viewModels()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if(context is HomeListener){
+        if (context is HomeListener) {
             listener = context
         }
     }
@@ -43,7 +39,8 @@ class HomeFragment : Fragment(layout.fragment_home) {
         listener = null
     }
 
-    private val shortcutList = shortcutData.toMutableList()
+    private var initList  = mutableListOf<ShortcutData>()
+    private var shortcutList = mutableListOf<ShortcutData>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = FragmentHomeBinding.bind(view)
@@ -60,69 +57,69 @@ class HomeFragment : Fragment(layout.fragment_home) {
         }
     }
 
-    private fun initBasic() {
-        binding.profile.tvBalance.text = "00,00,000"
-        binding.profile.tvName.text = "Anonymous User"
-        binding.profile.tvUserTag.visibility = View.VISIBLE
-        binding.profile.tvUserTag.text = "Basic"
-        binding.profile.llRegistration.visibility = View.VISIBLE
-        binding.profile.llExplore.visibility = View.VISIBLE
-        binding.profile.tvRegistration.visibility = View.VISIBLE
-        binding.profile.btnRegisterNow.visibility = View.VISIBLE
-        binding.profile.tvExplore.visibility = View.VISIBLE
-        binding.profile.btnExplore.visibility = View.VISIBLE
-        binding.profile.llTransactions.visibility = View.GONE
-        initBasicItems()
-        initListener()
+    private fun initObserver() {
+        viewModel.shorCutList.observe(viewLifecycleOwner){
+            initList = it
+            initShortcut(it)
+        }
+        viewModel.shortCutSelectionList.observe(viewLifecycleOwner){
+            shortcutList = it
+        }
     }
 
-    private fun initBasicItems() {
-        adapter = ShortCutAdapter( onClick = { data ->
-            binding.root.performClick()
-        }, onLongClick = {
+    private fun initShortcut(list: MutableList<ShortcutData>) {
 
+        adapter = ShortCutAdapter(onClick = { data ->
+            if (data.title == "Shortcut") {
+                val shortCutSelector = ShortCutSelector(
+                    shortcutData = shortcutList.toList(),
+                    onClick = { selectedData ->
+                        isRemoveShow = false
+                        viewModel.updateShortcut(data, selectedData)
+                    }
+                )
+                shortCutSelector.show(requireActivity().supportFragmentManager, "ShortCutSelector")
+            } else {
+                if (data.removeIcon) {
+                    viewModel.removeShortCut(data)
+                }
+            }
+        }, onLongClick = {
+            isRemoveShow = !isRemoveShow
+            viewModel.updateRemoveShow()
         })
+
+
         binding.profile.rvShortcuts.apply {
             layoutManager = GridLayoutManager(requireContext(), 4, LinearLayoutManager.VERTICAL, false)
             isNestedScrollingEnabled = false
         }
         binding.profile.rvShortcuts.adapter = adapter
-        adapter.submitList(initList)
+        adapter.submitList(list)
     }
 
-    private fun initItems() {
-        adapter = ShortCutAdapter( onClick = { data ->
-            if (data.title == "Shortcut") {
-                val shortCutSelector = ShortCutSelector(
-                    shortcutData = shortcutList.toList(),
-                    onClick = { selectedData ->
-                        shortcutList.remove(selectedData)
-                        initList[data.id] = ShortcutData(data.id, selectedData.icon, selectedData.title, false)
-                        isRemoveShow = false
-                        changeState()
-                        adapter.notifyItemChanged(data.id)
-                    }
-                )
-                shortCutSelector.show(requireActivity().supportFragmentManager, "ShortCutSelector")
-            }else{
-                if(data.removeIcon){
-                    initList[data.id] = ShortcutData(data.id, ic_add, "Shortcut")
-                    adapter.notifyItemChanged(data.id)
-                    val item = shortcutData.find{
-                        data.title == it.title
-                    }
-                    shortcutList.add(item!!)
-                    shortcutList.sortBy { it.id }
-                }
-            }
+    private fun initBasic() {
+        binding.profile.tvBalance.text = "00,00,000"
+        binding.profile.tvName.text = "Anonymous User"
+        binding.profile.tvUserTag.visibility = View.VISIBLE
+        binding.profile.tvUserTag.text = "Basic"
+        binding.profile.tvUserTag.setVisibility(true)
+        binding.profile.llRegistration.setVisibility(true)
+        binding.profile.llExplore.setVisibility(true)
+        binding.profile.tvRegistration.setVisibility(true)
+        binding.profile.btnRegisterNow.setVisibility(true)
+        binding.profile.tvExplore.setVisibility(true)
+        binding.profile.btnExplore.setVisibility(true)
+        binding.profile.llTransactions.setVisibility(false)
+        initBasicItems()
+        initListener()
+    }
+
+    private fun initBasicItems() {
+        adapter = ShortCutAdapter(onClick = {
+            binding.root.performClick()
         }, onLongClick = {
-            isRemoveShow = !isRemoveShow
-            initList.forEach {
-                if(it.title != "Shortcut"){
-                    it.removeIcon = !it.removeIcon
-                    adapter.notifyItemChanged(it.id)
-                }
-            }
+
         })
         binding.profile.rvShortcuts.apply {
             layoutManager =
@@ -130,24 +127,15 @@ class HomeFragment : Fragment(layout.fragment_home) {
             isNestedScrollingEnabled = false
         }
         binding.profile.rvShortcuts.adapter = adapter
-        adapter.submitList(initList)
-    }
-
-    private fun changeState() {
-        initList.forEach {
-            if(it.title != "Shortcut"){
-                it.removeIcon = false
-                adapter.notifyItemChanged(it.id)
-            }
-        }
+        //adapter.submitList(initList)
     }
 
     private fun initListener() {
         binding.root.setOnClickListener {
-            binding.basicPopup.root.visibility = View.VISIBLE
+            binding.basicPopup.root.setVisibility(true)
         }
         binding.basicPopup.closeDialog.setOnClickListener {
-            binding.basicPopup.root.visibility = View.GONE
+            binding.basicPopup.root.setVisibility(false)
         }
         binding.basicPopup.btnRegisterNow1.setOnClickListener {
             binding.basicPopup.root.performClick()
@@ -169,16 +157,28 @@ class HomeFragment : Fragment(layout.fragment_home) {
     private fun initInfo() {
         binding.profile.tvBalance.text = "4,00,000"
         binding.profile.tvName.text = "Maruf Ahmed"
-        binding.profile.llRegistration.visibility = View.GONE
-        binding.profile.llExplore.visibility = View.GONE
-        binding.profile.tvRegistration.visibility = View.GONE
-        binding.profile.btnRegisterNow.visibility = View.GONE
-        binding.profile.tvExplore.visibility = View.GONE
-        binding.profile.btnExplore.visibility = View.GONE
-        binding.profile.tvUserTag.visibility = View.GONE
-        binding.profile.llTransactions.visibility = View.VISIBLE
-        initItems()
+        binding.profile.llRegistration.setVisibility(false)
+        binding.profile.llExplore.setVisibility(false)
+        binding.profile.tvRegistration.setVisibility(false)
+        binding.profile.btnRegisterNow.setVisibility(false)
+        binding.profile.tvExplore.setVisibility(false)
+        binding.profile.btnExplore.setVisibility(false)
+        binding.profile.tvUserTag.setVisibility(false)
+        binding.profile.llTransactions.setVisibility(true)
+        //initItems()
+        initObserver()
         initMainListener()
+
+        initDialog()
+    }
+
+    private fun initDialog() {
+        val dialog = PromotionDialog(
+            requireContext(), this, onClick = {
+
+            }, items = DemoData.promotionList
+        )
+        dialog.show()
     }
 
     private fun initMainListener() {
@@ -186,17 +186,17 @@ class HomeFragment : Fragment(layout.fragment_home) {
             listener?.onDrawerClick()
         }
         binding.root.setOnClickListener {
-            if(isRemoveShow){
+            if (isRemoveShow) {
                 isRemoveShow = false
-                changeState()
+                viewModel.changeState()
             }
         }
-        binding.profile.balanceToogle.setOnClickListener{
-            if(isBalanceShow){
+        binding.profile.balanceToogle.setOnClickListener {
+            if (isBalanceShow) {
                 isBalanceShow = false
                 binding.profile.tvBalance.text = "********"
                 binding.profile.balanceToogle.setImageResource(ic_hide_balance)
-            }else{
+            } else {
                 isBalanceShow = true
                 binding.profile.tvBalance.text = "4,00,000"
                 binding.profile.balanceToogle.setImageResource(ic_show_balance)

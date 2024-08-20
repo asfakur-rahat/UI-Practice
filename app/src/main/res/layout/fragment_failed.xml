@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/fbg_transaction"
+    tools:context=".presentation.transaction.FailedFragment">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/open_sans_regular_22"
+        app:layout_constraintEnd_toEndOf="@id/selected_number"
+        android:text="Transfer Failed"
+        android:textColor="#E60026"
+        android:layout_marginTop="@dimen/_130dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/selected_number"/>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/selected_number"
+        android:layout_marginTop="@dimen/_15dp"
+        app:cardCornerRadius="@dimen/_10dp"
+        app:layout_constraintTop_toBottomOf="@id/title_tag"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="@dimen/_15dp"
+        android:padding="@dimen/_4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/receiver"
+                android:layout_marginVertical="@dimen/_5dp"
+                android:layout_marginStart="@dimen/_8dp"
+                style="@style/open_sans_semi_bold_16"/>
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/avatar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_13dp"
+                    android:layout_marginStart="@dimen/_10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_nagad" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/contact_name"
+                    style="@style/open_sans_semi_bold_18_black"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10dp"
+                    tools:text="01700000000"
+                    android:textColor="#B3000000"
+                    app:layout_constraintStart_toEndOf="@id/avatar"
+                    app:layout_constraintTop_toTopOf="@id/avatar"
+                    app:layout_constraintBottom_toBottomOf="@id/avatar"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_transaction_details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15dp"
+        android:padding="@dimen/_1dp"
+        android:background="@drawable/border_gap_failed"
+        app:layout_constraintTop_toBottomOf="@id/selected_number"
+        app:layout_constraintStart_toStartOf="@id/selected_number"
+        app:layout_constraintEnd_toEndOf="@id/selected_number">
+        <include
+            android:id="@+id/middle"
+            layout="@layout/custom_divider"
+            android:layout_width="@dimen/_2dp"
+            android:layout_height="@dimen/_176dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <include
+            android:id="@+id/first"
+            layout="@layout/custom_divider"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_2dp"
+            app:layout_constraintVertical_bias=".5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tra_id_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/open_sans_regular_14"
+            android:textColor="#80000000"
+            android:text="@string/transaction_id"
+            android:layout_marginTop="@dimen/_20dp"
+            android:layout_marginStart="@dimen/_10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/copy_transaction_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10dp"
+            app:layout_constraintTop_toTopOf="@id/tra_id_tag"
+            app:layout_constraintBottom_toBottomOf="@id/tra_id_tag"
+            app:layout_constraintStart_toEndOf="@id/tra_id_tag"
+            app:srcCompat="@drawable/ic_copy"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_transaction_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="DW1234567891234567891"
+            style="@style/open_sans_regular_14"
+            android:layout_marginTop="@dimen/_10dp"
+            app:layout_constraintStart_toStartOf="@id/tra_id_tag"
+            app:layout_constraintEnd_toEndOf="@id/copy_transaction_id"
+            app:layout_constraintTop_toBottomOf="@id/tra_id_tag"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/time_date_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/time_amp_date"
+            style="@style/open_sans_regular_14"
+            android:textColor="#80000000"
+            android:layout_marginTop="@dimen/_20dp"
+            android:layout_marginStart="@dimen/_15dp"
+            app:layout_constraintStart_toEndOf="@id/middle"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_time_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/open_sans_regular_14"
+            tools:text="10:10 AM\n10 Aug 2021"
+            android:layout_marginTop="@dimen/_10dp"
+            app:layout_constraintTop_toBottomOf="@id/time_date_tag"
+            app:layout_constraintStart_toStartOf="@id/time_date_tag"
+            app:layout_constraintEnd_toEndOf="@id/time_date_tag"/>
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tran_amount_tag"
+            android:layout_marginTop="@dimen/_10dp"
+            android:layout_marginStart="@dimen/_10dp"
+            android:text="@string/transaction_amount"
+            style="@style/open_sans_regular_14"
+            android:textColor="#80000000"
+            app:layout_constraintTop_toBottomOf="@id/first"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/currency1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_bdt"
+            android:tint="@color/black"
+            android:layout_marginTop="@dimen/_10dp"
+            app:layout_constraintTop_toBottomOf="@id/tran_amount_tag"
+            app:layout_constraintStart_toStartOf="@id/tran_amount_tag"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/transaction_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="1,000"
+            style="@style/open_sans_regular_14"
+            android:layout_marginStart="@dimen/_3dp"
+            app:layout_constraintTop_toTopOf="@id/currency1"
+            app:layout_constraintBottom_toBottomOf="@id/currency1"
+            app:layout_constraintStart_toEndOf="@id/currency1"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/btn_view_receipt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_gray_button"
+        android:paddingVertical="@dimen/_13dp"
+        android:paddingHorizontal="@dimen/_20dp"
+        android:text="@string/view_receipt"
+        android:textColor="#B3000000"
+        android:layout_marginBottom="@dimen/_35dp"
+        style="@style/open_sans_semi_bold_18_black"
+        app:layout_constraintStart_toStartOf="@id/layout_transaction_details"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/btn_back_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_gold_button"
+        android:paddingVertical="@dimen/_13dp"
+        android:paddingHorizontal="@dimen/_20dp"
+        android:text="@string/back_to_home"
+        android:textColor="#B3000000"
+        style="@style/open_sans_semi_bold_18_black"
+        app:layout_constraintEnd_toEndOf="@id/layout_transaction_details"
+        app:layout_constraintTop_toTopOf="@id/btn_view_receipt"
+        app:layout_constraintBottom_toBottomOf="@id/btn_view_receipt"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

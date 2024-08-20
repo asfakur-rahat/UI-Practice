@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.kotlinx.serialization)
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -50,4 +52,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.androidx.fragment.ktx)
+    implementation(libs.kotlinx.serialization.json)
+
+    implementation("io.coil-kt:coil:2.7.0")
 }

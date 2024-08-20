@@ -1,0 +1,10 @@
+<!-- res/drawable/dashed_border.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@android:color/transparent" />
+    <stroke
+        android:width="@dimen/_2dp"
+        android:color="#3DAE72"
+        android:dashWidth="@dimen/_12dp"
+        android:dashGap="@dimen/_6dp"/>
+    <corners android:radius="@dimen/_10dp"/>
+</shape>
